@@ -1,20 +1,9 @@
 <template>
   <div>
-    <div
-      v-if="modal"
-      class="justify-center absolute z-10 items-center flex w-full"
-    >
-      <div
-        v-if="modal"
-        class="bg-black bg-opacity-70 fixed top-0 left-0 h-full w-full"
-        @click="modal = false"
-      ></div>
-      <div
-        class="bg-white mx-5 relative z-20 my-10 md:my-0 w-full sm:w-2/3 md:w-1/2 rounded-3xl"
-      >
-        <info-comercio :info="details" @close="modal = false" />
-      </div>
-    </div>
+    <Modal v-model="modal" class="w-full h-full">
+      <InfoComercio :info="details" @close="modal = false" />
+    </Modal>
+
     <div
       class="bg-[#FF9900] h-60 flex justify-center text-center items-center text-white"
     >
@@ -27,7 +16,7 @@
             placeholder="Escribe una palabra de busqueda"
             type="text"
             class="w-full p-2 pl-6 mt-10 rounded-full border border-[#707070] focus:outline-none text-[#707070]"
-            @keydown.enter="search"
+            @keydown.enter="doSearch"
           />
           <button @click="getComercios" class="pt-8 pl-3">
             <svg
@@ -48,9 +37,10 @@
         </div>
       </div>
     </div>
-    <div class="pt-20">
+
+    <div class="pt-10">
       <p class="text-xl text-[#707070] w-3/4 mx-auto font-light pl-4">
-        Resultados
+        Resultados: {{ total }}
       </p>
       <div
         class="w-3/4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
@@ -64,6 +54,7 @@
           <p>{{ comercio.razon_social }} <br /></p>
         </div>
       </div>
+      <Loading v-model="loading"></Loading>
     </div>
     <div class="flex justify-center pb-16 pt-4">
       <div class="mt-4 flex gap-2 m-auto w-3/4 flex-wrap justify-center">
@@ -114,69 +105,59 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  name: 'Categorias',
-  data() {
-    return {
-      modal: false,
-      comercios: [],
-      total: 0,
-      page: 1,
-      nombre: '',
-      details: {},
-    }
-  },
-  computed: {
-    pages() {
-      return Math.ceil(this.total / 12)
-    },
-    start() {
-      return this.page === 1 ? 0 : (this.page - 1) * 12
-    },
-    end() {
-      return this.page * 12 - 1
-    },
-  },
-  mounted() {
-    this.getComercios()
-  },
-  methods: {
-    async getComercios() {
-      this.$nextTick(() => this.$nuxt.$loading.start())
-      const search = this.nombre.toUpperCase()
-      const { data, error } = await this.$supabase
-        .from('comercios')
-        .select('*')
-        .range(this.start, this.end)
-        .like('razon_social', `%${search}%`)
-      const { count } = await this.$supabase
-        .from('comercios')
-        .select('id', { count: 'exact', head: true })
-        .like('razon_social', `%${search}%`)
-      this.$nuxt.$loading.finish()
-      // eslint-disable-next-line no-console
-      if (error) return console.error(error)
-      this.comercios = data
-      this.total = count
-    },
-    setPage(page) {
-      this.page = page
-      this.getComercios()
-    },
-    setDetails(comercio) {
-      this.details = comercio
-      this.modal = true
-    },
-    search() {
-      this.page = 1
-      this.getComercios()
-    },
-    clear() {
-      this.nombre = ''
-      this.page = 1
-      this.getComercios()
-    },
-  },
-}
+<script lang="ts" setup>
+import { useSupabaseDatasource } from "@/composables/supabase_datasource";
+import { Comercio } from "@/models/models";
+// Data
+const modal = ref(false);
+const loading = ref(false);
+const details = ref<Comercio>();
+const comercios = ref<Comercio[]>();
+const nombre = ref("");
+const total = ref(0);
+const page = ref(1);
+
+const { getDataComercios, countDataComercios } = useSupabaseDatasource();
+// Computed
+const pages = computed(() => {
+  return Math.ceil(total.value / 12);
+});
+const start = computed(() => {
+  return page.value === 1 ? 0 : (page.value - 1) * 12;
+});
+const end = computed(() => {
+  return page.value * 12 - 1;
+});
+// Methods
+const getComercios = async () => {
+  const query = nombre.value.toUpperCase();
+  loading.value = true;
+  const data = await getDataComercios(start.value, end.value, query);
+  const count = await countDataComercios(query);
+  loading.value = false;
+  if (!data) console.log(data);
+  comercios.value = data;
+  total.value = count ?? 0;
+};
+const setPage = (pag: number) => {
+  page.value = pag;
+  getComercios();
+};
+const setDetails = (comercio: any) => {
+  details.value = comercio;
+  modal.value = true;
+};
+const doSearch = () => {
+  page.value = 1;
+  getComercios();
+};
+const clear = () => {
+  nombre.value = "";
+  page.value = 1;
+  getComercios();
+};
+// Mounted
+onMounted(() => {
+  getComercios();
+});
 </script>
