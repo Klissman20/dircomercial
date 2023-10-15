@@ -39,16 +39,7 @@
       </div>
     </div>
     <div class="flex gap-x-8 grid grid-cols-1 md:grid-cols-2">
-      <div class="pt-4">
-        <label :for="field" class="w-1/3 text-white">Municipio:</label>
-        <input
-          :id="field"
-          v-model="comercio.municipio"
-          :name="field"
-          type="text"
-          class="border rounded w-full p-1 mt-2 focus:outline-none text-[#707070]"
-        />
-      </div>
+      
       <div class="pt-4">
         <label for="direccion" class="w-1/3 text-white">Dirección:</label>
         <input
@@ -246,11 +237,17 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { Comercio } from "~/models/models";
 defineProps({
   comercio: {
-    
-  }
-})
+    type: Object as () => Comercio,
+    default: () => ({}),
+  },
+});
+
+const saveComercio = async () => {
+  
+}
 /* export default {
   name: "FormComercio",
   data: () => ({

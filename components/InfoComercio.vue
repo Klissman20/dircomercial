@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="flex bg-[#FF9900] p-4 rounded-t-3xl">
-      <p class="text-2xl py-1 text-white w-full text-center">
-        {{ razon_social }}
-      </p>
+      <p class="text-2xl py-1 text-white w-full text-center"></p>
       <button
         class="hover:scale-110 ease-in duration-100"
         @click="$emit('close')"
