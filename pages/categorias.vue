@@ -130,7 +130,7 @@ const end = computed(() => {
 });
 // Methods
 const getComercios = async () => {
-  const query = nombre.value.toUpperCase();
+  const query = nombre.value;
   loading.value = true;
   const data = await getDataComercios(start.value, end.value, query);
   const count = await countDataComercios(query);

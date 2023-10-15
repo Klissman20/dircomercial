@@ -1,5 +1,30 @@
 <template>
-    <div>
-        <FormComercio></FormComercio>
-    </div>
+  <div>
+    <Modal v-model="modal">
+      <SendEmail @close="loadForm"></SendEmail>
+    </Modal>
+    <FormComercio :comercio="comercio"></FormComercio>
+  </div>
 </template>
+<script lang="ts" setup>
+import { Comercio } from "~/models/models";
+
+const { getDataComercioByEmail } = useSupabaseDatasource();
+// Data
+const modal = ref(true);
+const route = useRoute();
+
+const comercio = ref({} as Comercio);
+
+const loadForm = (com: Comercio) => {
+  modal.value = false;
+  console.log(comercio);
+  comercio.value = com;
+};
+
+// Methods
+onMounted(async () => {
+  const { email } = route.query;
+  //comercio.value = await getDataComercioByEmail(email as string);
+});
+</script>
