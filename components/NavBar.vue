@@ -7,10 +7,10 @@
     </div>
     <div class="w-1/2 items-end justify-center hidden lg:flex">
       <ul class="flex gap-16 pb-2 text-[#707070]">
-        <li><router-link to="/">Inicio</router-link></li>
-        <li><router-link to="/email">Contacto</router-link></li>
-        <li><router-link to="/categorias">Categorías</router-link></li>
+        <li><router-link to="/">Buscar</router-link></li>
+        <li><router-link to="/directorio">Directorio</router-link></li>
         <li><router-link to="/talento">Talento local</router-link></li>
+        <li><router-link to="/contacto">Contacto</router-link></li>
       </ul>
     </div>
     <div class="flex justify-end w-1/2 mr-8 lg:hidden">

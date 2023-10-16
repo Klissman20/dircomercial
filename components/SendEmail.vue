@@ -2,39 +2,49 @@
   <div class="bg-[#707070] rounded">
     <div class="mx-auto p-10 font-light text-lg">
       <h2 class="text-2xl font-bold">Enviar Email</h2>
-      <label class="w-1/3 text-right"
-        >Ingresa tu direccion de correo electronico para enviar email</label
-      >
+      <p>Ingresa tu direccion de correo electronico para enviar email</p>
+      <div class="p-2">{{ msg }}</div>
       <form @submit.prevent="searchEmail">
-        <input
-          v-model="email"
-          type="email"
-          required
-          class="border rounded w-full p-1"
-        />
-        <div>Mensaje: {{ msg }}</div>
-        <button
-          type="submit"
-          class="bg-white text-[#707070] border border-[#707070] p-2 rounded"
-        >
-          Enviar
-        </button>
+        <div class="flex gap-3">
+          <label for="email" class="text-right p-2">Email:</label>
+          <input
+            v-model="email"
+            type="email"
+            placeholder="usuario@correo.com"
+            id="email"
+            required
+            class="border rounded w-full p-1"
+          />
+          <button
+            type="submit"
+            class="bg-[#FF9900] text-white border border-[#575757] py-2 px-10 rounded"
+          >
+            Enviar
+          </button>
+        </div>
       </form>
       <hr class="my-4" />
       <form @submit.prevent="validateToken">
-        <input
-          type="text"
-          name="msg"
-          class="border rounded w-full p-1"
-          v-model="token"
-        />
-        <button
-          type="submit"
-          class="bg-white text-[#707070] border border-[#707070] p-2 rounded"
-        >
-          Obtener Datos
-        </button>
+        <div class="flex gap-3">
+          <label for="token" class="text-right p-2">Token:</label>
+          <input
+            type="text"
+            id="token"
+            placeholder="nFnAdvlMwG"
+            name="msg"
+            required
+            class="border rounded w-full p-1"
+            v-model="token"
+          />
+          <button
+            type="submit"
+            class="bg-white w-full text-[#707070] border border-[#707070] p-2 rounded"
+          >
+            Obtener Datos
+          </button>
+        </div>
       </form>
+      <Loading v-model="loading"></Loading>
     </div>
   </div>
 </template>
@@ -45,29 +55,27 @@ import { useSupabaseDatasource } from "@/composables/supabase_datasource";
 const email = ref("");
 const msg = ref("");
 const token = ref("");
+const loading = ref(false);
 const { getDataComercioByEmail, saveDataComercio } = useSupabaseDatasource();
 
 const emit = defineEmits(["close"]);
 
 const searchEmail = async () => {
+  loading.value = true;
   const comercio = await getDataComercioByEmail(email.value);
 
   if (!comercio) {
     msg.value = "Email no encontrado";
+    loading.value = false;
     return;
   }
 
   let token: string = generateRandomId(10);
   comercio.token = token;
-  if (comercio) {
-    const resp = await saveDataComercio(comercio);
-    console.log(resp);
-  }
-
+  await saveDataComercio(comercio);
   const valid = await sendEmail(token);
   if (valid) msg.value = "Email enviado";
-
-  // body data type must match "Content-Type" header
+  loading.value = false;
 };
 
 const sendEmail = async (token: string) => {
@@ -91,15 +99,17 @@ const sendEmail = async (token: string) => {
 };
 
 const validateToken = async () => {
+  loading.value = true;
   const comercio = await getDataComercioByEmail(email.value);
+  loading.value = false;
   if (!comercio) {
     msg.value = "Email no encontrado";
-    return
-  } 
+    return;
+  }
   if (comercio.token === token.value) {
     msg.value = "Token valido";
     emit("close", comercio);
-    return
+    return;
   }
   msg.value = "Token invalido";
 };

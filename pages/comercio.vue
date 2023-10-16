@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Modal v-model="modal">
+    <Modal v-model="modal" :persistent="true">
       <SendEmail @close="loadForm"></SendEmail>
     </Modal>
     <FormComercio :comercio="comercio"></FormComercio>
@@ -18,7 +18,6 @@ const comercio = ref({} as Comercio);
 
 const loadForm = (com: Comercio) => {
   modal.value = false;
-  console.log(comercio);
   comercio.value = com;
 };
 
