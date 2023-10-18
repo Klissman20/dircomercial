@@ -17,5 +17,8 @@
     "resend": "^1.1.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "vue-gtag-next": "^1.14.0"
   }
 }
