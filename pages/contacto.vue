@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-gray-200 min-h-screen flex items-center justify-center">
-    <div class=" p-8 rounded shadow-md max-w-2xl w-full bg-[#FF9900]">
-      <h2 class="text-3xl text-white font-semibold mb-4">Formulario de Contacto</h2>
+  <div class="bg-gray-200 p-10 flex items-center justify-center">
+    <div class="p-8 rounded shadow-md max-w-2xl w-full bg-[#FF9900]">
+      <h2 class="text-3xl text-white font-semibold mb-4">
+        Formulario de Contacto
+      </h2>
       <form @submit.prevent="submitForm">
         <div class="mb-4">
           <label for="nombre" class="block text-sm font-medium text-white"

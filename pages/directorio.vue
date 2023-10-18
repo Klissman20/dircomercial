@@ -5,12 +5,12 @@
     </Modal>
 
     <div
-      class="bg-[#FF9900] h-60 flex justify-center text-center items-center text-white"
+      class="bg-[#ff9911] h-60 flex justify-center text-center items-center text-white"
     >
       <div class="w-2/5">
         <p class="text-xl font-light">Directorio Comercial</p>
         <p class="text-4xl font-light">Guatapé</p>
-        <div class="flex">
+        <div class="flex items-center">
           <input
             v-model="search"
             placeholder="Escribe una palabra de busqueda"
@@ -18,7 +18,10 @@
             class="w-full p-2 pl-6 mt-10 rounded-full border border-[#707070] focus:outline-none text-[#707070]"
             @keydown.enter="doSearch"
           />
-          <button @click="getComercios" class="pt-8 pl-3">
+          <button
+            @click="getComercios"
+            class="pt-8 pl-3 hover:scale-125 duration-100"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -43,7 +46,7 @@
         Resultados: {{ total }}
       </p>
       <div
-        class="w-3/4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
+        class="w-3/4 grid min-h grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
       >
         <div
           v-for="(comercio, i) in comercios"
@@ -52,7 +55,9 @@
           :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}'.jpg)`"
           @click="setDetails(comercio)"
         >
-          <div class="absolute inset-0 rounded-xl bg-gradient-to-b from-[#FF9900] to-transparent opacity-60"></div>
+          <div
+            class="absolute inset-0 rounded-xl bg-gradient-to-b from-[#FF9900] to-transparent opacity-60"
+          ></div>
           <p class="text-center text-shadow">
             {{ comercio.razon_social }}
           </p>
@@ -110,8 +115,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useSupabaseDatasource } from "@/composables/supabase_datasource";
-import { Comercio } from "@/models/models";
+import { useSupabaseDatasource } from "@/composables/comercios_datasource";
+import { Comercio } from "@/models/comercio_model";
 // Data
 const modal = ref(false);
 const loading = ref(false);
@@ -121,7 +126,7 @@ const nombre = ref("");
 const total = ref(0);
 const page = ref(1);
 
-const search = useState<string>('search');
+const search = useState<string>("search");
 const { getDataComercios, countDataComercios } = useSupabaseDatasource();
 // Computed
 const pages = computed(() => {

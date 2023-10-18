@@ -79,7 +79,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useSupabaseDatasource } from "@/composables/supabase_datasource";
+import { useSupabaseDatasource } from "@/composables/comercios_datasource";
 // Data
 const email = ref("");
 const msg = ref("");

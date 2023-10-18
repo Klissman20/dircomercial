@@ -5,10 +5,10 @@
   >
     <img src="@/static/foto-directorio-comercial.png" class="bg-cover" alt="" />
     <div
-      class="absolute inset-0 flex justify-center text-center text-white items-center "
+      class="absolute inset-0 flex justify-center text-center text-white items-center"
     >
       <div class="w-2/5">
-        <p class="text-4xl font-light ">Directorio Comercial</p>
+        <p class="text-4xl font-light">Directorio Comercial</p>
         <p class="text-6xl font-light mt-2">Guatapé</p>
         <div class="flex gap-2">
           <div class="w-full pt-3">
@@ -16,10 +16,14 @@
               v-model="search"
               placeholder="Escribe una palabra de busqueda"
               type="text"
-              class="w-full p-2 p-10 text-[#707070] focus:outline-none rounded-2xl"
+              @keyup.enter="$router.push('/directorio')"
+              class="w-full p-2 pl-4 bg-opacity-50 text-black focus:ring mt-2 focus:border-[#FF9900] bg-white border focus:outline-none rounded-2xl"
             />
           </div>
-          <NuxtLink to="/directorio" class="pt-5 cursor-pointer">
+          <NuxtLink
+            to="/directorio"
+            class="pt-5 cursor-pointer hover:scale-125 duration-100"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
