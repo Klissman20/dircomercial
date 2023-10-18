@@ -5,10 +5,10 @@
   >
     <img src="@/static/foto-directorio-comercial.png" class="bg-cover" alt="" />
     <div
-      class="absolute inset-0 flex justify-center text-center text-white items-center"
+      class="absolute inset-0 flex justify-center text-center text-white items-center "
     >
       <div class="w-2/5">
-        <p class="text-4xl font-light">Directorio Comercial</p>
+        <p class="text-4xl font-light ">Directorio Comercial</p>
         <p class="text-6xl font-light mt-2">Guatapé</p>
         <div class="flex">
           <input

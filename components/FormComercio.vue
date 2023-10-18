@@ -42,7 +42,7 @@
           ></textarea>
         </div>
       </div>
-      <div class="flex gap-x-8 grid grid-cols-1 md:grid-cols-2">
+      <div class="flex gap-x-8 grid grid-cols-1">
         <div class="pt-4">
           <label for="direccion" class="w-1/3 text-white">Dirección:</label>
           <input

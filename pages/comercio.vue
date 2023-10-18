@@ -1,9 +1,12 @@
 <template>
   <div>
-    <Modal v-model="modal" :persistent="true">
+    <Modal v-model="modal" :persistent="true" >
       <SendEmail @close="loadForm"></SendEmail>
     </Modal>
-    <FormComercio :comercio="comercio"></FormComercio>
+    <div class="bg-[url('@/static/foto-directorio-comercial.png')] bg-cover bg-center bg-no-repeat py-12" >
+
+      <FormComercio :comercio="comercio"></FormComercio>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
