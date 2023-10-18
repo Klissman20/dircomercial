@@ -6,12 +6,19 @@
     <div
       class="bg-[url('@/static/foto-directorio-comercial.png')] bg-cover bg-center bg-no-repeat py-12"
     >
-      <FormHojadevida></FormHojadevida>
+      <FormHojadevida :talento="talento"></FormHojadevida>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-const modal = ref(false);
-const loadForm = () => {};
+import { Talento } from '~/models/talento_model';
+
+
+const talento = ref({} as Talento);
+const modal = ref(true);
+const loadForm = (tal: Talento) => {
+  modal.value = false;
+  talento.value = tal;
+};
 </script>

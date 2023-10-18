@@ -13,7 +13,7 @@
           type="text"
           required
           id="nombre"
-          v-model="nombre"
+          v-model="talento.nombre"
           class="w-full px-3 py-2 border rounded-md"
         />
       </div>
@@ -26,7 +26,7 @@
           <input
             type="email"
             id="email"
-            v-model="email"
+            v-model="talento.email"
             class="w-full px-3 py-2 border rounded-md"
           />
         </div>
@@ -34,14 +34,16 @@
         <div class="w-full">
           <label
             for="telefono"
+          
             class="block text-sm font-medium text-white py-1"
             >Teléfono
           </label>
           <input
-            type="tel"
-            placeholder="313 355 0123"
+            type="number"
+            placeholder="3133550123"
+            max="9999999999"
             id="telefono"
-            v-model="telefono"
+            v-model="talento.telefono"
             class="w-full px-3 py-2 border rounded-md"
           />
         </div>
@@ -55,7 +57,7 @@
         >
         <textarea
           id="objetivo"
-          v-model="objetivo"
+          v-model="talento.objetivo"
           class="w-full px-3 py-2 border rounded-md"
         ></textarea>
       </div>
@@ -66,7 +68,7 @@
         >
         <textarea
           id="educacion"
-          v-model="educacion"
+          v-model="talento.educacion"
           class="w-full px-3 py-2 border rounded-md"
         ></textarea>
       </div>
@@ -79,7 +81,7 @@
         >
         <textarea
           id="experiencia"
-          v-model="experiencia"
+          v-model="talento.experiencia"
           class="w-full px-3 py-2 border rounded-md"
         ></textarea>
       </div>
@@ -92,7 +94,7 @@
         >
         <textarea
           id="habilidades"
-          v-model="habilidades"
+          v-model="talento.habilidades"
           class="w-full px-3 py-2 border rounded-md"
         ></textarea>
       </div>
@@ -103,7 +105,7 @@
         >
         <textarea
           id="idiomas"
-          v-model="idiomas"
+          v-model="talento.idiomas"
           class="w-full px-3 py-2 border rounded-md"
         ></textarea>
       </div>
@@ -116,7 +118,7 @@
         >
         <textarea
           id="certificaciones"
-          v-model="certificaciones"
+          v-model="talento.certificaciones"
           class="w-full px-3 py-2 border rounded-md"
         ></textarea>
       </div>
@@ -141,15 +143,17 @@
   </div>
 </template>
 <script lang="ts" setup>
-const nombre = ref("");
-const email = ref("");
-const telefono = ref(0);
-const objetivo = ref("");
-const educacion = ref("");
-const experiencia = ref("");
-const habilidades = ref("");
-const idiomas = ref("");
-const certificaciones = ref("");
+import { Talento } from "~/models/talento_model";
+const { saveDataTalento } = useTalentoSBDatasource();
 
-const enviarHojaDeVida = () => {};
+const props = defineProps({
+  talento: { type: Object as PropType<Talento>, required: true },
+});
+
+const msg = ref("");
+
+const enviarHojaDeVida = async () => {
+  const data = await saveDataTalento(props.talento);
+  msg.value = "Los datos se han guardado";
+};
 </script>

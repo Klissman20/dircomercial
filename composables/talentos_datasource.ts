@@ -13,7 +13,7 @@ export const useTalentoSBDatasource = () => {
             .from("talentodb")
             .select("*")
             .range(start, end)
-            .ilike("razon_social", `%${search}%`);
+            .ilike("nombre", `%${search}%`);
           return data as Talento[];
         } catch (error) {
           console.log(error);
@@ -25,7 +25,7 @@ export const useTalentoSBDatasource = () => {
           const { count } = await client
             .from("talentodb")
             .select("id", { count: "exact", head: true })
-            .ilike("razon_social", `%${search}%`);
+            .ilike("nombre", `%${search}%`);
           return count as number;
         } catch (error) {
           console.log(error);

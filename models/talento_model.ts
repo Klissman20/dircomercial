@@ -1,13 +1,13 @@
 export interface Talento {
-  certificaciones: string | null;
-  educacion: string | null;
+  certificaciones: string;
+  educacion: string;
   email: string | null;
-  experiencia: string | null;
-  habilidades: string | null;
+  experiencia: string;
+  habilidades: string;
   id: number;
-  idiomas: string | null;
+  idiomas: string;
   nombre: string | null;
-  objetivo: string | null;
+  objetivo: string;
   telefono: number | null;
   token: string | null;
 }

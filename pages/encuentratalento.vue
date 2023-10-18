@@ -1,5 +1,67 @@
 <template>
   <div>
+
+    <Modal v-model="modal" class="w-full h-full">
+      <InfoTalento :info="details" @close="modal = false" />
+    </Modal>
+
+    <div
+      class="bg-[#ff9911] h-60 flex justify-center text-center items-center text-white"
+    >
+      <div class="w-2/5">
+        <h1 class="text-4xl font-light">Talento</h1>
+        <h2 class="text-xl font-light">Talento para la productividad</h2>
+        <div class="flex items-center">
+          <input
+            v-model="search"
+            placeholder="Escribe una palabra de busqueda"
+            type="text"
+            class="w-full p-2 pl-6 mt-10 rounded-full border border-[#707070] focus:outline-none text-[#707070]"
+          />
+          <button class="pt-8 pl-3 hover:scale-125 duration-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="w-6 h-6"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-10">
+      <p class="text-xl text-[#707070] w-3/4 mx-auto font-light pl-4">
+        Resultados: {{ total }}
+      </p>
+      <div
+        class="w-3/4 grid min-h grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
+      >
+        <div
+          v-for="(talento, i) in talentos"
+          :key="i"
+          class="border bg-[#FF9900] text-white bg-cover bg-center relative hover:font-bold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
+        >
+        <div
+        @click="setDetails(talento)"
+            class="absolute inset-0 rounded-xl bg-gradient-to-b from-[#FF9900] to-transparent opacity-60"
+          ></div>
+          <p class="text-center text-shadow">
+            {{ talento.nombre }}
+          </p>
+        </div>
+      </div>
+      <Loading v-model="loading"></Loading>
+    </div>
+
     <div class="flex justify-center pb-16 pt-4">
       <div class="mt-4 flex gap-2 m-auto w-3/4 flex-wrap justify-center">
         <button class="hover:scale-125" @click="setPage(1)">
@@ -50,10 +112,49 @@
   </div>
 </template>
 <script setup lang="ts">
+import { Talento } from "@/models/talento_model";
+const { getDataTalentos } = useTalentoSBDatasource();
+
+const modal = ref(false);
 const page = ref(1);
-const pages = ref(1);
+const total = ref(1);
+const loading = ref(false);
+const search = ref("");
+const talentos = ref<Talento[]>();
+
+const details = ref<Talento>();
+
+const getTalentos = async () => {
+  const query = search.value;
+  loading.value = true;
+  const data = await getDataTalentos(start.value, end.value, query);
+  loading.value = false;
+  if (!data) console.log(data);
+  talentos.value = data;
+};
+
+const pages = computed(() => {
+  return Math.ceil(total.value / 12);
+});
+const start = computed(() => {
+  return page.value === 1 ? 0 : (page.value - 1) * 12;
+});
+const end = computed(() => {
+  return page.value * 12 - 1;
+});
+
 const setPage = (pag: number) => {
   page.value = pag;
   //getComercios();
 };
+
+const setDetails = (talento: Talento) => {
+  details.value = talento;
+  modal.value = true;
+};
+
+onMounted(() => {
+  getTalentos();
+});
+
 </script>

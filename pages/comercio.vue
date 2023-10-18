@@ -9,12 +9,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { Comercio } from "~/models/models";
+import { Comercio } from "~/models/comercio_model";
 
-const { getDataComercioByEmail } = useSupabaseDatasource();
 // Data
 const modal = ref(true);
-const route = useRoute();
 
 const comercio = ref({} as Comercio);
 
@@ -22,10 +20,4 @@ const loadForm = (com: Comercio) => {
   modal.value = false;
   comercio.value = com;
 };
-
-// Methods
-onMounted(async () => {
-  const { email } = route.query;
-  //comercio.value = await getDataComercioByEmail(email as string);
-});
 </script>

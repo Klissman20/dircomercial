@@ -115,7 +115,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useSupabaseDatasource } from "@/composables/comercios_datasource";
 import { Comercio } from "@/models/comercio_model";
 // Data
 const modal = ref(false);

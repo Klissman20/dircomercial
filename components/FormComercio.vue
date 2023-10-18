@@ -245,7 +245,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { Comercio } from "~/models/models";
+import { Comercio } from "~/models/comercio_model";
 const { saveDataComercio } = useSupabaseDatasource();
 
 const props = defineProps({
