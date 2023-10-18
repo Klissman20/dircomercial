@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#FF9900]">
-    <index-search></index-search>
+    <!-- <index-search></index-search> -->
     <div class="text-center py-12 h-96">
       <img src="@/static/actividades-comerciales.png" width="450" class="mx-auto" alt="" />
       <p class="text-2xl font-light text-white mt-4">
