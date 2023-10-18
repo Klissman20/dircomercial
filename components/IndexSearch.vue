@@ -1,7 +1,7 @@
 <template>
   <div
     class="relative duration-500 overflow-hidden"
-    :style="`height: ${open ? 600 : 220}px;`"
+    :style="`height: ${open ? 600 : 0}px;`"
   >
     <img src="@/static/foto-directorio-comercial.png" class="bg-cover" alt="" />
     <div
@@ -10,13 +10,16 @@
       <div class="w-2/5">
         <p class="text-4xl font-light ">Directorio Comercial</p>
         <p class="text-6xl font-light mt-2">Guatapé</p>
-        <div class="flex">
-          <input
-            placeholder="Escribe una palabra de busqueda"
-            type="text"
-            class="w-full p-2 pl-6 mt-10 text-[#707070] focus:outline-none rounded-full"
-          />
-          <button class="pt-8 pl-3">
+        <div class="flex gap-2">
+          <div class="w-full pt-3">
+            <input
+              v-model="search"
+              placeholder="Escribe una palabra de busqueda"
+              type="text"
+              class="w-full p-2 p-10 text-[#707070] focus:outline-none rounded-2xl"
+            />
+          </div>
+          <NuxtLink to="/directorio" class="pt-5 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -31,19 +34,22 @@
                 d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"
               />
             </svg>
-          </button>
+          </NuxtLink>
         </div>
         <div
           class="duration-300 overflow-hidden"
           :class="{ 'opacity-0': !open }"
           :style="`height: ${open ? 200 : 0}px;`"
         >
-          <p class="text-xl font-light mt-20">
+          <p class="text-xl font-light pt-20 pb-2">
             Toda la oferta comercial de Guatapé en un solo lugar.
           </p>
-          <p class="text-xl font-light text-[#FF9900]">
+          <NuxtLink
+            to="/directorio"
+            class="text-xl hover:text-white hover:drop-shadow-xl hover:border font-light text-[#FF9900] p-1 rounded-sm px-6 transition-all bg-opacity-30 bg-black hover:underline duration-100 text-shadow hover:font-semibold"
+          >
             Encuentra Aquí todo lo que buscas
-          </p>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -52,4 +58,5 @@
 <script lang="ts" setup>
 const route = useRoute();
 const open = computed(() => route.name === "index");
+const search = useState<string>("search", () => "");
 </script>

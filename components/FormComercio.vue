@@ -135,7 +135,8 @@
         </div>
 
         <div class="pt-4">
-          <label for="imagen" class="w-1/3 text-white"
+          <FileUplodad :id="comercio.id"></FileUplodad>
+          <!-- <label for="imagen" class="w-1/3 text-white"
             >Subir Logo / Imagen:</label
           >
           <input
@@ -143,7 +144,7 @@
             name="imagen"
             type="file"
             class="border bg-white rounded w-full p-1 mt-2 focus:outline-none text-[#707070]"
-          />
+          /> -->
         </div>
       </div>
 

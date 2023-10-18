@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="flex bg-[#FF9900] p-4 rounded-t-3xl">
-      <p class="text-2xl py-1 text-white w-full text-center"></p>
+      <p class="text-2xl py-1 text-white w-full drop-shadow-md text-center">
+        {{ info.razon_social }}
+      </p>
       <button
         class="hover:scale-110 ease-in duration-100"
         @click="$emit('close')"
@@ -22,21 +24,20 @@
         </svg>
       </button>
     </div>
-    <div class="flex border border-[#707070] bg-white rounded-b-3xl border-t-0">
-      <div class="w-1/2 pb-10">
-        <div
-          class="bg-[#e1e1e1] border border-[#707070] text-[#707070] h-56 m-6 flex justify-center items-center"
-        >
-          FOTO O LOGO
-        </div>
+    <div class="sm:flex pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0">
+      <div class="w-full md:w-2/3 pb-10">
+          <div
+            class="bg-contain bg-no-repeat bg-center border-[#707070] text-[#707070] h-56 flex justify-center items-center"
+            :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${info.id}.jpg');`"
+          ></div>
       </div>
-      <div class="w-1/2">
-        <p class="mt-10">Nombre: {{ info.nombre }}</p>
-        <p class="mt-2">NIT: {{ info.nit }}</p>
-        <p class="mt-2">Actividad: {{ info.actividad }}</p>
-        <p class="mt-2">Dirección: {{ info.direccion }}</p>
-        <p class="mt-2">Contacto: {{ info.telefono1 }}</p>
-        <p class="mt-2">Email: {{ info.email }}</p>
+      <div class="w-full p-3">
+        <p class="">Nombre: {{ info.nombre }}</p>
+        <p class="">NIT: {{ info.nit }}</p>
+        <p class="">Actividad: {{ info.actividad }}</p>
+        <p class="">Dirección: {{ info.direccion }}</p>
+        <p class="">Contacto: {{ info.telefono1 }}</p>
+        <p class="">Email: {{ info.email }}</p>
       </div>
     </div>
   </div>

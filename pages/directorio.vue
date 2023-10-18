@@ -12,7 +12,7 @@
         <p class="text-4xl font-light">Guatapé</p>
         <div class="flex">
           <input
-            v-model="nombre"
+            v-model="search"
             placeholder="Escribe una palabra de busqueda"
             type="text"
             class="w-full p-2 pl-6 mt-10 rounded-full border border-[#707070] focus:outline-none text-[#707070]"
@@ -48,10 +48,14 @@
         <div
           v-for="(comercio, i) in comercios"
           :key="i"
-          class="bg-[#FF9900] border text-white text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
+          class="border bg-[#FF9900] text-white bg-cover bg-center relative hover:font-bold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
+          :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}'.jpg)`"
           @click="setDetails(comercio)"
         >
-          <p>{{ comercio.razon_social }} <br /></p>
+          <div class="absolute inset-0 rounded-xl bg-gradient-to-b from-[#FF9900] to-transparent opacity-60"></div>
+          <p class="text-center text-shadow">
+            {{ comercio.razon_social }}
+          </p>
         </div>
       </div>
       <Loading v-model="loading"></Loading>
@@ -117,6 +121,7 @@ const nombre = ref("");
 const total = ref(0);
 const page = ref(1);
 
+const search = useState<string>('search');
 const { getDataComercios, countDataComercios } = useSupabaseDatasource();
 // Computed
 const pages = computed(() => {
@@ -130,7 +135,7 @@ const end = computed(() => {
 });
 // Methods
 const getComercios = async () => {
-  const query = nombre.value;
+  const query = search.value;
   loading.value = true;
   const data = await getDataComercios(start.value, end.value, query);
   const count = await countDataComercios(query);
