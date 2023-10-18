@@ -1,12 +1,29 @@
 <template>
   <div class="bg-[#FF9900] rounded">
     <div class="mx-auto p-10 font-light text-lg">
+      <NuxtLink to="/ayuda" class="float-right hover:scale-110 duration-100 text-white">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-8 h-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
+          />
+        </svg>
+      </NuxtLink>
+
       <h2 class="text-2xl font-bold text-white">Enviar Email</h2>
       <p class="text-white">
         Ingresa tu direccion de correo electronico para enviar email
       </p>
       <div
-      v-if="msg"
+        v-if="msg"
         class="p-2 border border-red-600 rounded w-1/3 text-red-600 bg-red-200 mt-2 flex"
       >
         <svg
@@ -37,7 +54,7 @@
               placeholder="usuario@correo.com"
               id="email"
               required
-              class="border rounded w-full p-2  focus:outline-none "
+              class="border rounded w-full p-2 focus:outline-none"
             />
             <button
               type="submit"
@@ -54,19 +71,19 @@
           <label for="token" class="text-right text-white font-bold"
             >Token:</label
           >
-          <div class="block md:flex gap-3 mt-1 ">
+          <div class="block md:flex gap-3 mt-1">
             <input
               type="text"
               id="token"
               placeholder="nFnAdvlMwG"
               name="msg"
               required
-              class="border rounded w-full p-2 focus:outline-none" 
+              class="border rounded w-full p-2 focus:outline-none"
               v-model="token"
             />
             <button
               type="submit"
-              class="bg-white w-full mt-4 md:mt-0 md:w-1/3   text-[#707070] border border-[#707070] hover:scale-105 duration-100 ease-out p-2 rounded"
+              class="bg-white w-full mt-4 md:mt-0 md:w-1/3 text-[#707070] border border-[#707070] hover:scale-105 duration-100 ease-out p-2 rounded"
             >
               Obtener Datos
             </button>

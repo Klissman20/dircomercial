@@ -1,23 +1,41 @@
 <template>
   <div>
-    <Modal v-model="modal" class="w-full h-full">
+    <Modal v-model="modal" class="w-full h-full z-50">
       <InfoComercio :info="details" @close="modal = false" />
     </Modal>
 
     <div
       class="bg-[#ff9911] h-60 flex justify-center text-center items-center text-white"
     >
-      <div class="w-2/5">
+      <div class="w-full max-w-xl mx-5">
         <p class="text-xl font-light">Directorio Comercial</p>
         <p class="text-4xl font-light">Guatapé</p>
         <div class="flex items-center">
-          <input
-            v-model="search"
-            placeholder="Escribe una palabra de busqueda"
-            type="text"
-            class="w-full p-2 pl-6 mt-10 rounded-full border border-[#707070] focus:outline-none text-[#707070]"
-            @keydown.enter="doSearch"
-          />
+          <div class="relative w-full mt-8">
+            <input
+              v-model="search"
+              placeholder="Escribe una palabra de busqueda"
+              type="text"
+              class="w-full p-2 pl-6 rounded-full border border-[#707070] focus:outline-none text-[#707070]"
+              @keydown.enter="doSearch"
+            />
+            <button
+              @click="doClear"
+              class="absolute rounded-full top-0 right-0 p-0.5 mt-1 mr-2 text-[#707070]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M12.293 7.293a1 1 0 00-1.414 1.414L12.586 10l-1.707 1.293a1 1 0 101.414 1.414L14 11.414l1.293 1.293a1 1 0 001.414-1.414L15.414 10l1.293-1.293a1 1 0 00-1.414-1.414L14 8.586l-1.293-1.293z"
+                />
+              </svg>
+            </button>
+          </div>
+
           <button
             @click="getComercios"
             class="pt-8 pl-3 hover:scale-125 duration-100"
@@ -49,18 +67,22 @@
         class="w-3/4 grid min-h grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
       >
         <div
+          class="cursor-pointer hover:font-semibold relative duration-150 hover:shadow-lg border m-2 hover:scale-110 rounded-xl"
           v-for="(comercio, i) in comercios"
           :key="i"
-          class="border bg-[#FF9900] text-white bg-cover bg-center relative hover:font-bold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
-          :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}'.jpg)`"
           @click="setDetails(comercio)"
         >
           <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-b from-[#FF9900] to-transparent opacity-60"
+            class="absolute inset-0 rounded-xl to-40% bg-gradient-to-t from-[#ff9900] to-transparent"
           ></div>
-          <p class="text-center text-shadow">
-            {{ comercio.razon_social }}
-          </p>
+          <div
+            class="bg-contain p-3 bg-no-repeat bg-center border-[#707070] m-3 text-[#707070] h-56 flex justify-center items-end"
+            :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}.jpg');`"
+          >
+            <p class="text-center relative z-10 text-shadow">
+              {{ comercio.razon_social }}
+            </p>
+          </div>
         </div>
       </div>
       <Loading v-model="loading"></Loading>
@@ -152,7 +174,7 @@ const setPage = (pag: number) => {
   page.value = pag;
   getComercios();
 };
-const setDetails = (comercio: any) => {
+const setDetails = (comercio: Comercio) => {
   details.value = comercio;
   modal.value = true;
 };
@@ -160,8 +182,8 @@ const doSearch = () => {
   page.value = 1;
   getComercios();
 };
-const clear = () => {
-  nombre.value = "";
+const doClear = () => {
+  search.value = "";
   page.value = 1;
   getComercios();
 };
