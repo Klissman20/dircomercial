@@ -15,7 +15,7 @@
                     <img src="@/static/flecha.png" class="w-32 mx-auto" alt="">
                     <p class="text-center text-white">Ofrece tu talento</p>
                 </router-link> 
-                <router-link to="/categorias" class="bg-[#FF9900] w-1/2 p-6 rounded-2xl cursor-pointer hover:scale-105 duration-100 ease-out">
+                <router-link to="/comercio" class="bg-[#FF9900] w-1/2 p-6 rounded-2xl cursor-pointer hover:scale-105 duration-100 ease-out">
                     <img src="@/static/lupa.png" class="w-24 my-2 mx-auto" alt="">
                     <p class="text-center text-white">Encuentra talento local</p>
                 </router-link> 

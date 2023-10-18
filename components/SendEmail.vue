@@ -1,47 +1,76 @@
 <template>
-  <div class="bg-[#707070] rounded">
+  <div class="bg-[#FF9900] rounded">
     <div class="mx-auto p-10 font-light text-lg">
-      <h2 class="text-2xl font-bold">Enviar Email</h2>
-      <p>Ingresa tu direccion de correo electronico para enviar email</p>
-      <div class="p-2">{{ msg }}</div>
-      <form @submit.prevent="searchEmail">
-        <div class="flex gap-3">
-          <label for="email" class="text-right p-2">Email:</label>
-          <input
-            v-model="email"
-            type="email"
-            placeholder="usuario@correo.com"
-            id="email"
-            required
-            class="border rounded w-full p-1"
+      <h2 class="text-2xl font-bold text-white">Enviar Email</h2>
+      <p class="text-white">
+        Ingresa tu direccion de correo electronico para enviar email
+      </p>
+      <div
+      v-if="msg"
+        class="p-2 border border-red-600 rounded w-1/3 text-red-600 bg-red-200 mt-2 flex"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          class="w-6 h-6 mx-2 mt-1"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
           />
-          <button
-            type="submit"
-            class="bg-[#FF9900] text-white border border-[#575757] py-2 px-10 rounded"
+        </svg>
+        <p class="ml-4">{{ msg }}</p>
+      </div>
+      <form @submit.prevent="searchEmail">
+        <div class="mt-2">
+          <label for="email" class="text-right font-bold text-white"
+            >Email:</label
           >
-            Enviar
-          </button>
+          <div class="block md:flex w-full gap-3 mt-1">
+            <input
+              v-model="email"
+              type="email"
+              placeholder="usuario@correo.com"
+              id="email"
+              required
+              class="border rounded w-full p-2  focus:outline-none "
+            />
+            <button
+              type="submit"
+              class="bg-[#FF9900] text-white w-full md:w-1/5 border border-white py-2 px-10 rounded hover:scale-105 duration-100 ease-out mt-4 md:mt-0"
+            >
+              Enviar
+            </button>
+          </div>
         </div>
       </form>
-      <hr class="my-4" />
+      <hr class="mt-4 mb-2" />
       <form @submit.prevent="validateToken">
-        <div class="flex gap-3">
-          <label for="token" class="text-right p-2">Token:</label>
-          <input
-            type="text"
-            id="token"
-            placeholder="nFnAdvlMwG"
-            name="msg"
-            required
-            class="border rounded w-full p-1"
-            v-model="token"
-          />
-          <button
-            type="submit"
-            class="bg-white w-full text-[#707070] border border-[#707070] p-2 rounded"
+        <div>
+          <label for="token" class="text-right text-white font-bold"
+            >Token:</label
           >
-            Obtener Datos
-          </button>
+          <div class="block md:flex gap-3 mt-1 ">
+            <input
+              type="text"
+              id="token"
+              placeholder="nFnAdvlMwG"
+              name="msg"
+              required
+              class="border rounded w-full p-2 focus:outline-none" 
+              v-model="token"
+            />
+            <button
+              type="submit"
+              class="bg-white w-full mt-4 md:mt-0 md:w-1/3   text-[#707070] border border-[#707070] hover:scale-105 duration-100 ease-out p-2 rounded"
+            >
+              Obtener Datos
+            </button>
+          </div>
         </div>
       </form>
       <Loading v-model="loading"></Loading>
