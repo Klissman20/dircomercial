@@ -1,4 +1,4 @@
-import { Comercio } from "~/models/models";
+import { Comercio } from "~/models/comercio_model";
 import { Database } from "~/models/database.types";
 export const useSupabaseDatasource = () => {
   const client = useSupabaseClient<Database>();

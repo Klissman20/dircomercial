@@ -2,7 +2,7 @@
   <div>
     <div class="flex bg-[#FF9900] p-4 rounded-t-3xl">
       <p class="text-2xl py-1 text-white w-full drop-shadow-md text-center">
-        {{ info.razon_social }}
+        {{ info.nombre }}
       </p>
       <button
         class="hover:scale-110 ease-in duration-100"
@@ -24,29 +24,33 @@
         </svg>
       </button>
     </div>
-    <div class="sm:flex pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0">
-      <div class="w-full md:w-2/3 pb-10">
-          <div
-            class="bg-contain bg-no-repeat bg-center border-[#707070] text-[#707070] h-56 flex justify-center items-center"
-            :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${info.id}.jpg');`"
-          ></div>
+    <div
+      class="sm:flex pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0"
+    >
+      <div class="w-full md:w-2/3 pb-10 pl-4 pt-4">
+        <div
+          class="bg-contain bg-no-repeat bg-center bg-slate-300 border-[#707070] text-[#707070] h-56 flex justify-center items-center"
+        ></div>
       </div>
-      <div class="w-full p-3">
+      <div class="w-full p-3 leading-7">
         <p class="">Nombre: {{ info.nombre }}</p>
-        <p class="">NIT: {{ info.nit }}</p>
-        <p class="">Actividad: {{ info.actividad }}</p>
-        <p class="">Dirección: {{ info.direccion }}</p>
-        <p class="">Contacto: {{ info.telefono1 }}</p>
         <p class="">Email: {{ info.email }}</p>
+        <p class="">Teléfono: {{ info.telefono }}</p>
+        <p class="">Objetivo: {{ info.objetivo }}</p>
+        <p class="">Educación: {{ info.educacion }}</p>
+        <p class="">Habilidades: {{ info.habilidades }}</p>
+        <p class="">Idiomas: {{ info.idiomas }}</p>
+        <p class="">Experiencia: {{ info.experiencia }}</p>
+        <p class="">Certificaciones: {{ info.certificaciones }}</p>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { Comercio } from "~/models/comercio_model";
+import { Talento } from "~/models/talento_model";
 defineProps({
   info: {
-    type: Object as () => Comercio,
+    type: Object as () => Talento,
     default: () => ({}),
   },
 });

@@ -1,25 +1,30 @@
 <template>
-    <div>
-        <div class="bg-[#FF9900] h-60 flex justify-center text-center items-center text-white">
-            <div class="w-2/5">
-
-                <p class="text-2xl font-light">TALENTO</p>
-                <p class="text-xl font-light">Para la productividad guatapense</p>
-            </div>
-
-        </div>
-        <div class="bg-[url('@/static/foto-directorio-comercial.png')] bg-cover bg-center bg-no-repeat w-full h-screen flex justify-center items-center" >
-            <div class="w-1/2 flex gap-12">
-
-                <router-link to="/email" class="bg-[#FF9900] w-1/2 p-6 rounded-2xl cursor-pointer hover:scale-105 duration-100 ease-out">
-                    <img src="@/static/flecha.png" class="w-32 mx-auto" alt="">
-                    <p class="text-center text-white">Ofrece tu talento</p>
-                </router-link> 
-                <router-link to="/categorias" class="bg-[#FF9900] w-1/2 p-6 rounded-2xl cursor-pointer hover:scale-105 duration-100 ease-out">
-                    <img src="@/static/lupa.png" class="w-24 my-2 mx-auto" alt="">
-                    <p class="text-center text-white">Encuentra talento local</p>
-                </router-link> 
-            </div>
-        </div>
+  <div>
+    <div
+      class="bg-[#FF9900] h-60 justify-center text-center items-center text-white"
+    >
+      <div class="w-full pt-10">
+        <h1 class="text-4xl font-semibold py-4">TALENTO</h1>
+        <h2 class="text-2xl font-light">Para la productividad guatapense</h2>
+      </div>
     </div>
+    <div
+      class="bg-[url('@/static/foto-directorio-comercial.png')] p-20 bg-cover bg-center bg-no-repeat w-full justify-center items-center"
+    >
+      <div class="max-w-3xl grid grid-cols-2 m-auto text-center gap-10 p-20">
+        <NuxtLink class="bg-[#FF9900] p-5 rounded-xl hover:scale-110 duration-100 hover:shadow" to="/hojadevida">
+          <div
+            class="bg-[url('@/static/lupa.png')] bg-contain m-auto bg-no-repeat bg-center w-20 h-20"
+          ></div>
+          <p class="text-center text-white">Ofrece tu talento</p>
+        </NuxtLink>
+        <NuxtLink class="bg-[#FF9900] p-5 rounded-xl hover:scale-110 duration-100 hover:shadow" to="/encuentratalento">
+          <div
+            class="bg-[url('@/static/flecha.png')] bg-contain m-auto bg-no-repeat bg-center w-20 h-20"
+          ></div>
+          <p class="text-center text-white">Encuentra talento local</p>
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
 </template>

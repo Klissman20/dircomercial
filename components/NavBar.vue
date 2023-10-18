@@ -1,11 +1,11 @@
 <template>
-  <nav class="flex">
-    <div class="w-1/2 pl-6 py-1">
-      <nuxt-link to="/">
+  <nav class="flex max-w-7xl m-auto">
+    <div class="h-28 w-96 pl-6 py-1">
+      <NuxtLink to="/">
         <img src="@/static/logo-guatape.png" width="340" alt="" />
-      </nuxt-link>
+      </NuxtLink>
     </div>
-    <div class="w-1/2 items-end justify-center hidden lg:flex">
+    <div class="w-full items-end justify-center hidden lg:flex">
       <ul class="flex gap-16 pb-2 text-[#707070]">
         <li><router-link to="/">Buscar</router-link></li>
         <li><router-link to="/directorio">Directorio</router-link></li>
