@@ -4,7 +4,7 @@ export interface Talento {
   email: string | null;
   experiencia: string;
   habilidades: string;
-  id: number;
+  id?: number;
   idiomas: string;
   nombre: string | null;
   objetivo: string;
