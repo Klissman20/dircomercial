@@ -32,12 +32,12 @@
           ></div>
       </div>
       <div class="w-full p-3">
-        <p class="">Nombre: {{ info.nombre }}</p>
-        <p class="">NIT: {{ info.nit }}</p>
-        <p class="">Actividad: {{ info.actividad }}</p>
-        <p class="">Dirección: {{ info.direccion }}</p>
-        <p class="">Contacto: {{ info.telefono1 }}</p>
-        <p class="">Email: {{ info.email }}</p>
+        <p> <span class="font-bold pr-2">Nombre:</span>{{ info.nombre }} </p>
+        <p><span class="font-bold pr-2">NIT:</span>{{ info.nit }}</p>
+        <p><span class="font-bold pr-2">Actividad:</span>{{ info.actividad }}</p>
+        <p><span class="font-bold pr-2">Dirección:</span> {{ info.direccion }}</p>
+        <p><span class="font-bold pr-2">Teléfono:</span>{{ info.telefono1 }}</p>
+        <p><span class="font-bold pr-2">Email:</span> {{ info.email }}</p>
       </div>
     </div>
   </div>
