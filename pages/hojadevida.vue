@@ -14,7 +14,6 @@
 <script lang="ts" setup>
 import { Talento } from '~/models/talento_model';
 
-
 const talento = ref({} as Talento);
 const modal = ref(true);
 const loadForm = (tal: Talento) => {

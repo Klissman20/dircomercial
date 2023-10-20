@@ -42,7 +42,7 @@
           ></textarea>
         </div>
       </div>
-      <div class="flex gap-x-8 grid grid-cols-1">
+      <div class="gap-x-8 grid grid-cols-1">
         <div class="pt-4">
           <label for="direccion" class="w-1/3 text-white">Dirección:</label>
           <input
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <div class="flex gap-x-8 grid grid-cols-1 md:grid-cols-2">
+      <div class="gap-x-8 grid grid-cols-1 md:grid-cols-2">
         <div class="pt-6">
           <label for="matricula" class="w-1/3 text-white">Matrícula:</label>
           <input
@@ -81,7 +81,7 @@
           />
         </div>
       </div>
-      <div class="flex gap-x-8 grid grid-cols-1 md:grid-cols-3">
+      <div class="gap-x-8 grid grid-cols-1 md:grid-cols-3">
         <div class="pt-6">
           <label for="fecha_matricula" class="w-1/3 text-white"
             >Fecha Matrícula:</label
@@ -121,7 +121,7 @@
         </div>
       </div>
 
-      <div class="flex gap-x-8 grid grid-cols-1 md:grid-cols-2">
+      <div class="gap-x-8 grid grid-cols-1 md:grid-cols-2">
         <div class="pt-4">
           <label for="nit" class="w-1/3 text-white">NIT:</label>
           <input
@@ -135,7 +135,7 @@
         </div>
 
         <div class="pt-4">
-          <FileUplodad :id="comercio.id"></FileUplodad>
+          <!-- <FileUplodad :id="comercio.id"></FileUplodad> -->
           <!-- <label for="imagen" class="w-1/3 text-white"
             >Subir Logo / Imagen:</label
           >
@@ -257,13 +257,8 @@ const props = defineProps({
 
 const msg = ref("");
 
-const getComercioByEmail = async () => {
-  //const comercio = await getDataComercioByEmail(props.email);
-};
-
 const saveComercio = async () => {
   const data = await saveDataComercio(props.comercio);
-  console.log(data);
   msg.value = "Los datos se han guardado";
 };
 </script>

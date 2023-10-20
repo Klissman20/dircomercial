@@ -1,6 +1,25 @@
 <template>
-  <div class="bg-[#FF9900] rounded">
-    <div class="mx-auto p-10 font-light text-lg">
+  <div class="bg-[#FF9900] mx-4 rounded">
+    <div class="p-6 font-light text-lg">
+      <NuxtLink
+        to="/talento"
+        class="hover:scale-110 float-right ease-in duration-100"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          class="w-8 h-8 text-white"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"
+          />
+        </svg>
+      </NuxtLink>
       <NuxtLink
         to="/ayuda"
         class="float-right hover:scale-110 duration-100 text-white"
@@ -21,13 +40,25 @@
         </svg>
       </NuxtLink>
 
-      <h2 class="text-2xl font-bold text-white">Enviar Email</h2>
-      <p class="text-white">
-        Ingresa tu direccion de correo electronico para enviar email
+      <h2 class="text-2xl font-bold text-white">
+        ¡Bienvenido a nuestra plataforma de talento!
+      </h2>
+      <hr class="my-1" />
+      <p class="text-white text-sm pt-3">
+        Si estás buscando la oportunidad de destacar tus habilidades y promover
+        tu talento, este es el lugar perfecto para ti. Regístrate ahora para
+        crear un perfil que muestre lo que puedes ofrecer. Si ya eres miembro,
+        simplemente inicia sesión con tu token y comienza a explorar
+        emocionantes oportunidades laborales que te están esperando.
       </p>
       <div
         v-if="msg"
-        class="p-2 border border-red-600 rounded w-1/3 text-red-600 bg-red-200 mt-2 flex"
+        class="p-2 border rounded w-full my-2 flex"
+        :class="
+          error
+            ? 'border-red-600 text-red-600 bg-red-200'
+            : 'border-green-600 text-green-600 bg-green-200'
+        "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +80,9 @@
       <div v-if="emailNuevo">
         <button
           @click="crearTalento"
-          class="bg-[#FF9900] text-white w-full border border-white py-2 px-10 rounded hover:scale-105 duration-100 ease-out mt-4 md:mt-0"
+          class="bg-white w-full mt-4 md:mt-0 text-[#707070] font-semibold border border-[#707070] hover:scale-105 duration-100 ease-out p-2 rounded"
         >
-          Registrar correo para crear un perfil
+          Presiona aquí y te enviaremos un correo para que crees tu perfil
         </button>
       </div>
       <form @submit.prevent="searchEmail">
@@ -70,7 +101,7 @@
             />
             <button
               type="submit"
-              class="bg-[#FF9900] text-white w-full md:w-1/5 border border-white py-2 px-10 rounded hover:scale-105 duration-100 ease-out mt-4 md:mt-0"
+              class="bg-white w-full mt-4 md:mt-0 md:w-2/3 text-[#707070] border border-[#707070] hover:scale-105 duration-100 ease-out p-2 rounded"
             >
               Enviar
             </button>
@@ -79,9 +110,13 @@
       </form>
       <hr class="mt-4 mb-2" />
       <form @submit.prevent="validateToken">
-        <div>
+        <div class="">
           <label for="token" class="text-right text-white font-bold"
-            >Token:</label
+            >Token de acceso:</label
+          >
+          <small class="text-white"
+            >¿Aún no lo tienes? Ingresa tu correo y te enviaremos uno
+            nuevo</small
           >
           <div class="block md:flex gap-3 mt-1">
             <input
@@ -95,11 +130,22 @@
             />
             <button
               type="submit"
-              class="bg-white w-full mt-4 md:mt-0 md:w-1/3 text-[#707070] border border-[#707070] hover:scale-105 duration-100 ease-out p-2 rounded"
+              :disabled="email === '' || token === ''"
+              :class="
+                email === '' || token === ''
+                  ? 'opacity-50 cursor-not-allowed'
+                  : 'hover:scale-105'
+              "
+              class="bg-white w-full mt-4 md:mt-0 md:w-2/3 text-[#707070] border border-[#707070] duration-100 ease-out p-2 rounded"
             >
-              Obtener Datos
+              Ingresar
             </button>
           </div>
+        </div>
+        <div class="text-center pt-2">
+          <NuxtLink to="/contacto" class="pt-2 text-sm text-white"
+            >Si tienes inconvenientes para ingresar, contáctanos
+          </NuxtLink>
         </div>
       </form>
       <Loading v-model="loading"></Loading>
@@ -108,10 +154,12 @@
 </template>
 
 <script lang="ts" setup>
-import { Talento } from "~/models/talento_model";
+import { Educacion } from "./FormEducacion.vue";
+const educacion = useState<Educacion[]>("educacion", () => []);
 
 // Data
 const emailNuevo = ref(false);
+const error = ref(false);
 const email = ref("");
 const msg = ref("");
 const token = ref("");
@@ -125,6 +173,7 @@ const searchEmail = async () => {
   const talento = await getDataTalentoByEmail(email.value);
 
   if (!talento) {
+    error.value = true;
     msg.value = "Email no encontrado";
     emailNuevo.value = true;
     loading.value = false;
@@ -161,17 +210,20 @@ const sendEmail = async (token: string) => {
 
 const validateToken = async () => {
   loading.value = true;
-  const comercio = await getDataTalentoByEmail(email.value);
+  const talento = await getDataTalentoByEmail(email.value);
   loading.value = false;
-  if (!comercio) {
+  if (!talento) {
+    error.value = true;
     msg.value = "Email no encontrado";
     return;
   }
-  if (comercio.token === token.value) {
+  if (talento.token === token.value) {
     msg.value = "Token valido";
-    emit("close", comercio);
+    educacion.value = JSON.parse(talento.educacion);
+    emit("close", talento);
     return;
   }
+  error.value = true;
   msg.value = "Token invalido";
 };
 
@@ -184,17 +236,18 @@ const crearTalento = async () => {
       experiencia: "",
       habilidades: "",
       idiomas: "",
+      apellido: "",
       nombre: "",
       objetivo: "",
       telefono: 0,
       token: "",
     });
-
+    error.value = false;
     emailNuevo.value = false;
-    msg.value = "Los datos se han guardado. Ahora accede con el token";
-
-  } catch (error) {
-    console.log(error);
+    msg.value = "¡Correo con token enviado! Revísalo en tu bandeja de entrada.";
+  } catch (e) {
+    console.log(e);
+    error.value = true;
     emailNuevo.value = false;
     msg.value = "Error al guardar los datos";
   }
