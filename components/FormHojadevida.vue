@@ -123,10 +123,11 @@
         ></textarea>
       </div>
 
-      <div class="text-center py-3">
+      <div class="text-center py-3 flex justify-center">
         <input type="checkbox" required id="checkbox" class="p-2" />
-        <label for="checkbox" class="ml-2 text-white"
-          >Acepto Terminos y Condiciones
+        <label for="checkbox"  class="ml-2 text-white"
+          >
+           Acepto los <NuxtLink to="/terminos" class="underline">Terminos y Condiciones</NuxtLink> 
         </label>
       </div>
 

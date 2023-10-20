@@ -17,7 +17,7 @@
               placeholder="Escribe una palabra de busqueda"
               type="text"
               @keyup.enter="$router.push('/directorio')"
-              class="w-full p-2 pl-4 bg-opacity-50 text-black focus:ring mt-2 focus:border-[#FF9900] bg-white border focus:outline-none rounded-2xl"
+              class="w-full p-2 pl-4 bg-opacity-50 text-white placeholder:text-white focus:ring mt-2 focus:border-[#FF9900] bg-white border focus:outline-none rounded-2xl"
             />
           </div>
           <NuxtLink
@@ -29,7 +29,7 @@
               fill="none"
               stroke="currentColor"
               stroke-width="1.5"
-              class="w-6 h-6"
+              class="w-6 h-6 mt-2"
               viewBox="0 0 24 24"
             >
               <path
