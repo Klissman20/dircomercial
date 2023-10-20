@@ -7,6 +7,7 @@ export interface Talento {
   id?: number;
   idiomas: string;
   nombre: string | null;
+  apellido: string | null;
   objetivo: string;
   telefono: number | null;
   token: string | null;

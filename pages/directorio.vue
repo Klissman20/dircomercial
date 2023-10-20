@@ -21,9 +21,22 @@
             />
             <button
               @click="doClear"
-              class="absolute rounded-full top-1  right-1 p-0.5 mt-1 mr-2 text-[#707070]"
+              class="absolute rounded-full top-1 right-1 p-0.5 mt-1 mr-2 text-[#707070]"
             >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
             </button>
           </div>
 

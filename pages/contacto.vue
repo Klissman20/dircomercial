@@ -1,9 +1,12 @@
 <template>
   <div class="bg-gray-200 p-10 flex items-center justify-center">
-    <div class="p-8 rounded shadow-md max-w-2xl w-full bg-[#FF9900]">
-      <h2 class="text-3xl text-white font-semibold mb-4">
-        Formulario de Contacto
-      </h2>
+    <div class="p-8 rounded shadow-md text-white max-w-3xl w-full bg-[#FF9900]">
+      <h2 class="text-3xl font-semibold mb-4">Formulario de Contacto</h2>
+      <h3 class="text-2xl font-medium">¡Gracias por ponerte en contacto con nosotros!</h3>
+      <p>
+        Estamos aquí para ayudarte. Por favor, completa el siguiente formulario
+        y estaremos en contacto contigo en breve. ¡Esperamos saber de ti pronto!
+      </p>
       <form @submit.prevent="submitForm">
         <div class="mb-4">
           <label for="nombre" class="block text-sm font-medium text-white"
