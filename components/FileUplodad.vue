@@ -31,9 +31,8 @@
       {{ errorMessage }}
     </div>
 
-    <div v-if="fileUrl" class="mt-4">
-      Archivo subido: <a :href="fileUrl" target="_blank">{{ fileUrl }}</a
-      >
+    <div v-if="fileUrl" class="p-2 w-full text-center text-white">
+      Archivo subido correctamente
     </div>
   </div>
 </template>
