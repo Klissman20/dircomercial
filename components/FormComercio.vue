@@ -2,7 +2,7 @@
   <div class="max-w-4xl mx-auto bg-[rgba(0,0,0,0.4)] px-8 rounded-2xl">
     <h2 class="text-4xl pt-8 font-bold text-white">Formulario</h2>
     <hr class="my-6" />
-    <div>{{ msg }}</div>
+
     <form @submit.prevent="saveComercio">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
         <div>
@@ -135,7 +135,7 @@
         </div>
 
         <div class="pt-4">
-          <!-- <FileUplodad :id="comercio.id"></FileUplodad> -->
+          <FileUplodad :id="comercio.id"></FileUplodad>
           <!-- <label for="imagen" class="w-1/3 text-white"
             >Subir Logo / Imagen:</label
           >
@@ -233,9 +233,29 @@
         </div>
       </div>
       <hr class="mt-10" />
-      <div class="flex justify-end">
+      <div class="flex justify-end gap-4">
+        <div
+          :class="{ 'scale-0': !msg }"
+          class="p-2 border h-12 border-green-600 duration-100 rounded w-full text-green-600 bg-green-200 mt-2 flex"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            class="w-6 h-6 mx-2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+            />
+          </svg>
+          <p class="ml-4">{{ msg }}</p>
+        </div>
         <button
-          class="hover:scale-105 duration-100 ease-out text-white border border-white p-2 px-6 my-8 rounded"
+          class="hover:scale-105 duration-100 w-1/3 ease-out text-white border border-white p-2.5 px-6 my-2 rounded"
           type="submit"
         >
           Confirmar Datos
