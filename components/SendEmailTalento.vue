@@ -82,7 +82,7 @@
           @click="crearTalento"
           class="bg-white w-full mt-4 md:mt-0 text-[#707070] font-semibold border border-[#707070] hover:scale-105 duration-100 ease-out p-2 rounded"
         >
-          Presiona aquí y te enviaremos un correo para que crees tu perfil
+          Registrar email y crear nuevo perfil
         </button>
       </div>
       <form @submit.prevent="searchEmail">
@@ -174,7 +174,7 @@ const searchEmail = async () => {
 
   if (!talento) {
     error.value = true;
-    msg.value = "Email no encontrado";
+    msg.value = "Este email aún no se encuentra registrado";
     emailNuevo.value = true;
     loading.value = false;
     return;
@@ -184,7 +184,7 @@ const searchEmail = async () => {
   talento.token = token;
   await saveDataTalento(talento);
   const valid = await sendEmail(token);
-  if (valid) msg.value = "Email enviado";
+  if (valid) msg.value = "Email enviado con token de acceso";
   loading.value = false;
 };
 
@@ -231,7 +231,7 @@ const crearTalento = async () => {
   try {
     await saveDataTalento({
       certificaciones: "",
-      educacion: "",
+      educacion: "[]",
       email: email.value,
       experiencia: "",
       habilidades: "",
@@ -244,7 +244,7 @@ const crearTalento = async () => {
     });
     error.value = false;
     emailNuevo.value = false;
-    msg.value = "¡Correo con token enviado! Revísalo en tu bandeja de entrada.";
+    msg.value = "¡Email registrado! Presiona enviar para recibir el token.";
   } catch (e) {
     console.log(e);
     error.value = true;
