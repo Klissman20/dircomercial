@@ -24,18 +24,24 @@
         </svg>
       </button>
     </div>
-    <div class="sm:flex pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0">
+    <div
+      class="sm:flex pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0"
+    >
       <div class="w-full md:w-2/3 pb-10">
-          <div
-            class="bg-contain bg-no-repeat bg-center border-[#707070] text-[#707070] h-56 flex justify-center items-center"
-            :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${info.id}.jpg');`"
-          ></div>
+        <div
+          class="bg-contain bg-no-repeat bg-center border-[#707070] text-[#707070] h-56 flex justify-center items-center"
+          :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${info.id}.jpg');`"
+        ></div>
       </div>
       <div class="w-full p-3">
-        <p> <span class="font-bold pr-2">Nombre:</span>{{ info.nombre }} </p>
+        <p><span class="font-bold pr-2">Nombre:</span>{{ info.nombre }}</p>
         <p><span class="font-bold pr-2">NIT:</span>{{ info.nit }}</p>
-        <p><span class="font-bold pr-2">Actividad:</span>{{ info.actividad }}</p>
-        <p><span class="font-bold pr-2">Dirección:</span> {{ info.direccion }}</p>
+        <p>
+          <span class="font-bold pr-2">Actividad:</span>{{ info.actividad }}
+        </p>
+        <p>
+          <span class="font-bold pr-2">Dirección:</span> {{ info.direccion }}
+        </p>
         <p><span class="font-bold pr-2">Teléfono:</span>{{ info.telefono1 }}</p>
         <p><span class="font-bold pr-2">Email:</span> {{ info.email }}</p>
       </div>
@@ -46,8 +52,8 @@
 import { Comercio } from "~/models/comercio_model";
 defineProps({
   info: {
-    type: Object as () => Comercio,
-    default: () => ({}),
+    type: Object as PropType<Comercio>,
+    required: true,
   },
 });
 </script>
