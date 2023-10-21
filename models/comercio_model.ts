@@ -9,7 +9,7 @@ export interface Comercio {
   email: string | null;
   fecha_matricula: string | null;
   fecha_renovacion: string | null;
-  id: number;
+  id?: number;
   matricula: number | null;
   municipio: string | null;
   nit: number | null;

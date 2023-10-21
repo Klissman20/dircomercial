@@ -146,26 +146,25 @@ import { Comercio } from "@/models/comercio_model";
 const modal = ref(false);
 const loading = ref(false);
 const initComercio = {
-  actividad: "",
-  ano: 0,
-  ciiu1: "",
-  ciiu2: "",
-  ciiu3: "",
-  ciiu4: "",
-  direccion: "",
-  email: "",
-  fecha_matricula: "",
-  fecha_renovacion: "",
-  id: 0,
-  matricula: 0,
-  municipio: "",
-  nit: 0,
-  nombre: "",
-  razon_social: "",
-  telefono1: 0,
-  telefono2: 0,
-  telefono3: 0,
-  token: "",
+  actividad: "comercio",
+  ano: 12,
+  ciiu1: "1",
+  ciiu2: "2",
+  ciiu3: "3",
+  ciiu4: "4",
+  direccion: "123",
+  email: "123@456.com",
+  fecha_matricula: "123",
+  fecha_renovacion: "123",
+  matricula: 123,
+  municipio: "123",
+  nit: 123,
+  nombre: "123",
+  razon_social: "123",
+  telefono1: 123,
+  telefono2: 1230,
+  telefono3: 123,
+  token: null,
 };
 const details = ref<Comercio>(initComercio);
 const comercios = ref<Comercio[]>();
@@ -202,8 +201,9 @@ const setPage = (pag: number) => {
 };
 const setDetails = (comercio: Comercio) => {
   modal.value = true;
-  console.log(comercio);
+  //console.log(comercio);
   details.value = comercio;
+  // console.log(details.value);
 };
 const doSearch = () => {
   page.value = 1;
