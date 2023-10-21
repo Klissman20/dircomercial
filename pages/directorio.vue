@@ -200,9 +200,9 @@ const setPage = (pag: number) => {
   getComercios();
 };
 const setDetails = (comercio: Comercio) => {
+  modal.value = true;
   console.log(comercio);
   details.value = { ...comercio };
-  modal.value = true;
 };
 const doSearch = () => {
   page.value = 1;
