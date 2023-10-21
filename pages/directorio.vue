@@ -77,10 +77,10 @@
           @click="setDetails(comercio)"
         >
           <div
-            class="absolute bottom-0 bg-gradient-to-b from-40% from-[#ff9900] to-[#e68e0b] rounded-b-xl h-[50%] w-full"
+            class="absolute bottom-0 bg-gradient-to-b from-35% from-[#ff9900ea] to-[#e6750b] rounded-b-xl h-[40%] w-full"
           ></div>
           <div
-            class="bg-contain p-3 bg-no-repeat bg-center border-[#707070] m-3 text-white h-56 flex justify-center items-end"
+            class="bg-contain rounded-lg p-3 bg-no-repeat bg-top border-[#707070] m-3 text-white h-56 flex justify-center items-end"
             :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}.jpg');`"
           >
             <p class="text-center relative z-10 text-shadow w-full pt-4">
