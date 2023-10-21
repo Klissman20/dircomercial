@@ -54,6 +54,7 @@ defineProps({
   info: {
     type: Object as PropType<Comercio>,
     required: true,
+    default: () => ({}),
   },
 });
 </script>

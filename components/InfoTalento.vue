@@ -75,8 +75,9 @@
 import { Talento } from "~/models/talento_model";
 const props = defineProps({
   info: {
-    type: Object as () => Talento,
+    type: Object as PropType<Talento>,
     required: true,
+    default: () => ({}),
   },
 });
 

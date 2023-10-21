@@ -143,7 +143,7 @@
 <script lang="ts" setup>
 import { Comercio } from "@/models/comercio_model";
 // Data
-const modal = ref(true);
+const modal = ref(false);
 const loading = ref(false);
 const initComercio = {
   actividad: "",
