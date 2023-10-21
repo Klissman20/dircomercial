@@ -25,15 +25,15 @@
       </button>
     </div>
     <div
-      class="sm:flex pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0"
+      class="sm:flex py-5 border border-[#707070] bg-white rounded-b-3xl border-t-0"
     >
-      <div class="w-full md:w-2/3 pb-10">
+      <div class="w-full md:w-2/3 pl-2 pb-10">
         <div
-          class="bg-contain bg-no-repeat bg-center border-[#707070] text-[#707070] h-56 flex justify-center items-center"
+          class="bg-contain bg-no-repeat bg-center border-[#707070] h-full text-[#707070] flex justify-center items-center"
           :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${info.id}.jpg');`"
         ></div>
       </div>
-      <div class="w-full p-3">
+      <div class="w-full p-3 leading-7">
         <p><span class="font-bold pr-2">Nombre:</span>{{ info.nombre }}</p>
         <p><span class="font-bold pr-2">NIT:</span>{{ info.nit }}</p>
         <p>

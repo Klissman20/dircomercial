@@ -25,25 +25,22 @@
       </button>
     </div>
     <div class="pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0">
-      <div class="flex">
-        <div class="w-full md:w-2/3 p-4">
-          <div
-            class="bg-contain bg-no-repeat bg-center bg-slate-300 border-[#707070] text-[#707070] h-56 flex justify-center items-center"
-          ></div>
+      <div class="grid md:grid-cols-2 grid-cols-1 px-2 w-full">
+        <div class="w-full p-3 leading-7">
+          <p><strong>Nombre:</strong> {{ info.nombre }}</p>
+          <p><strong>Apellido:</strong> {{ info.apellido }}</p>
+          <p><strong>Email:</strong> {{ info.email }}</p>
+          <p><strong>Teléfono:</strong> {{ info.telefono }}</p>
+          <p><strong>Objetivo:</strong> {{ info.objetivo }}</p>
         </div>
         <div class="w-full p-3 leading-7">
-          <p class="">Nombre: {{ info.nombre }}</p>
-          <p class="">Apellido: {{ info.apellido }}</p>
-          <p class="">Email: {{ info.email }}</p>
-          <p class="">Teléfono: {{ info.telefono }}</p>
-          <p class="">Objetivo: {{ info.objetivo }}</p>
-          <p class="">Habilidades: {{ info.habilidades }}</p>
-          <p class="">Idiomas: {{ info.idiomas }}</p>
-          <p class="">Experiencia: {{ info.experiencia }}</p>
-          <p class="">Certificaciones: {{ info.certificaciones }}</p>
+          <p><strong>Habilidades:</strong> {{ info.habilidades }}</p>
+          <p><strong>Idiomas:</strong> {{ info.idiomas }}</p>
+          <p><strong>Experiencia:</strong> {{ info.experiencia }}</p>
+          <p><strong>Certificaciones:</strong> {{ info.certificaciones }}</p>
         </div>
       </div>
-      <div class="px-3 font-semibold">Educación:</div>
+      <div class="px-5 font-semibold">Educación:</div>
       <div class="m-2 bg-gray-200 rounded-2xl text-sm">
         <div
           v-for="(educa, i) in educacion"
