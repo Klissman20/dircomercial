@@ -200,8 +200,8 @@ const setPage = (pag: number) => {
   getComercios();
 };
 const setDetails = (comercio: Comercio) => {
-  //console.log(comercio);
-  details.value = comercio;
+  console.log(comercio);
+  details.value = { ...comercio };
   modal.value = true;
 };
 const doSearch = () => {
