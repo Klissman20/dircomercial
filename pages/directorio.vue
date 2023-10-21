@@ -145,7 +145,7 @@ import { Comercio } from "@/models/comercio_model";
 // Data
 const modal = ref(true);
 const loading = ref(false);
-const details = ref<Comercio>({
+const initComercio = {
   actividad: "",
   ano: 0,
   ciiu1: "",
@@ -154,9 +154,9 @@ const details = ref<Comercio>({
   ciiu4: "",
   direccion: "",
   email: "",
-  id: 0,
   fecha_matricula: "",
   fecha_renovacion: "",
+  id: 0,
   matricula: 0,
   municipio: "",
   nit: 0,
@@ -166,7 +166,8 @@ const details = ref<Comercio>({
   telefono2: 0,
   telefono3: 0,
   token: "",
-});
+};
+const details = ref<Comercio>(initComercio);
 const comercios = ref<Comercio[]>();
 
 const total = ref(0);
@@ -202,7 +203,7 @@ const setPage = (pag: number) => {
 const setDetails = (comercio: Comercio) => {
   modal.value = true;
   console.log(comercio);
-  details.value = { ...comercio };
+  details.value = comercio;
 };
 const doSearch = () => {
   page.value = 1;
