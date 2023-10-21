@@ -143,7 +143,7 @@
 <script lang="ts" setup>
 import { Comercio } from "@/models/comercio_model";
 // Data
-const modal = ref(false);
+const modal = ref(true);
 const loading = ref(false);
 const details = ref<Comercio>({
   actividad: "",
@@ -168,7 +168,7 @@ const details = ref<Comercio>({
   token: "",
 });
 const comercios = ref<Comercio[]>();
-const nombre = ref("");
+
 const total = ref(0);
 const page = ref(1);
 
