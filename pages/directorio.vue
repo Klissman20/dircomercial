@@ -77,13 +77,13 @@
           @click="setDetails(comercio)"
         >
           <div
-            class="absolute inset-0 rounded-xl to-40% bg-gradient-to-t from-[#ff9900] to-transparent"
+            class="absolute bottom-0 bg-gradient-to-b from-40% from-[#ff9900] to-[#e68e0b] rounded-b-xl h-[50%] w-full"
           ></div>
           <div
-            class="bg-contain p-3 bg-no-repeat bg-center border-[#707070] m-3 text-[#707070] h-56 flex justify-center items-end"
+            class="bg-contain p-3 bg-no-repeat bg-center border-[#707070] m-3 text-white h-56 flex justify-center items-end"
             :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}.jpg');`"
           >
-            <p class="text-center relative z-10 text-shadow">
+            <p class="text-center relative z-10 text-shadow w-full p-4">
               {{ comercio.razon_social }}
             </p>
           </div>
