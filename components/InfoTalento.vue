@@ -46,25 +46,25 @@
       <div class="px-3 font-semibold">Educación:</div>
       <div class="m-2 bg-gray-200 rounded-2xl text-sm">
         <div
-          v-for="({ grado, ubicacion, institucion, fechas }, i) in educacion"
+          v-for="(educa, i) in educacion"
           :key="i"
           class="w-full px-3 py-2 grid grid-cols-2"
         >
           <div>
             <strong>Título del Grado o Certificado</strong><br />
-            <p>{{ grado }}</p>
+            <p>{{ educa.grado }}</p>
           </div>
           <div>
             <strong>Ubicación</strong><br />
-            <p>{{ ubicacion }}</p>
+            <p>{{ educa.ubicacion }}</p>
           </div>
           <div>
             <strong>Nombre de la Institución Educativa</strong><br />
-            <p>{{ institucion }}</p>
+            <p>{{ educa.institucion }}</p>
           </div>
           <div>
             <strong>Fechas de Asistencia</strong><br />
-            <p>{{ fechas }}</p>
+            <p>{{ educa.fechas }}</p>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ import { Talento } from "~/models/talento_model";
 const props = defineProps({
   info: {
     type: Object as () => Talento,
-    default: () => ({}),
+    required: true,
   },
 });
 
