@@ -83,7 +83,7 @@
             class="bg-contain p-3 bg-no-repeat bg-center border-[#707070] m-3 text-white h-56 flex justify-center items-end"
             :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}.jpg');`"
           >
-            <p class="text-center relative z-10 text-shadow w-full p-4">
+            <p class="text-center relative z-10 text-shadow w-full pt-4">
               {{ comercio.razon_social }}
             </p>
           </div>
@@ -145,9 +145,31 @@ import { Comercio } from "@/models/comercio_model";
 // Data
 const modal = ref(false);
 const loading = ref(false);
-const details = ref<Comercio>();
+const initComercio = {
+  actividad: "",
+  ano: 0,
+  ciiu1: "",
+  ciiu2: "",
+  ciiu3: "",
+  ciiu4: "",
+  direccion: "",
+  email: "",
+  fecha_matricula: "",
+  fecha_renovacion: "",
+  id: 0,
+  matricula: 0,
+  municipio: "",
+  nit: 0,
+  nombre: "",
+  razon_social: "",
+  telefono1: 0,
+  telefono2: 0,
+  telefono3: 0,
+  token: "",
+};
+const details = ref<Comercio>(initComercio);
 const comercios = ref<Comercio[]>();
-const nombre = ref("");
+
 const total = ref(0);
 const page = ref(1);
 
@@ -179,8 +201,9 @@ const setPage = (pag: number) => {
   getComercios();
 };
 const setDetails = (comercio: Comercio) => {
-  details.value = comercio;
   modal.value = true;
+  console.log(comercio);
+  details.value = comercio;
 };
 const doSearch = () => {
   page.value = 1;
