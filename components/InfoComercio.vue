@@ -30,7 +30,7 @@
       <div class="w-full md:w-2/3 pl-2 pb-10">
         <div
           class="bg-contain bg-no-repeat bg-center border-[#707070] h-full text-[#707070] flex justify-center items-center"
-          :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${info.id}.jpg');`"
+          :style="`background-image: url('image?id=${info.id}');`"
         ></div>
       </div>
       <div class="w-full p-3 leading-7">

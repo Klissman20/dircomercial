@@ -81,7 +81,7 @@
           ></div>
           <div
             class="bg-contain rounded-lg p-3 bg-no-repeat bg-top border-[#707070] m-3 text-white h-56 flex justify-center items-end"
-            :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${comercio.id}.jpg');`"
+            :style="`background-image: url('image?id=${comercio.id}');`"
           >
             <p class="text-center relative z-10 text-shadow w-full pt-4">
               {{ comercio.razon_social }}
@@ -214,6 +214,21 @@ const doClear = () => {
   page.value = 1;
   getComercios();
 };
+
+function getImageUrl(id: number) {
+  const valid = $fetch("/api/image?id=" + id);
+}
+
+/* const getImageUrl = (id: number):string => {
+  const valid = $fetch("/api/image", {
+    method: "POST",
+    body: { id },
+  }).then((res) =>
+    res
+      ? `https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${id}.jpg`
+      : "~/static/foto-directorio-comercial.png"
+  );
+}; */
 // Mounted
 onMounted(() => {
   getComercios();
