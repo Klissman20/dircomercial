@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   nitro: {
     preset: "vercel",
+    serveStatic: true,
   },
   css: ["~/assets/main.css"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
