@@ -2,9 +2,9 @@
 export default defineNuxtConfig({
   nitro: {
     preset: "vercel",
-    prerender: {
-      ignore: ['/data']
-    }
+    routeRules: {
+      "/data": { isr: false },
+    },
   },
   css: ["~/assets/main.css"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
