@@ -156,7 +156,11 @@ const sendEmail = async (token: string) => {
         "Content-Type": "application/json",
         auyhorization: "Bearer " + process.env.RESEND_API_KEY,
       },
-      body: JSON.stringify({ email: email.value, token: token }),
+      body: JSON.stringify({
+        email: email.value,
+        token: token,
+        comercio: true,
+      }),
     });
     console.log(response);
     return true;

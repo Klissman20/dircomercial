@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-3">
     <div class="flex bg-[#FF9900] p-4 rounded-t-3xl">
       <p class="text-2xl py-1 text-white w-full drop-shadow-md text-center">
         {{ info.razon_social }}
@@ -27,10 +27,10 @@
     <div
       class="sm:flex py-5 border border-[#707070] bg-white rounded-b-3xl border-t-0"
     >
-      <div class="w-full md:w-2/3 pl-2 pb-10">
+      <div class="w-full h-64 md:h-auto md:w-2/3 md:pl-2 md:pb-10">
         <div
           class="bg-contain bg-no-repeat bg-center border-[#707070] h-full text-[#707070] flex justify-center items-center"
-          :style="`background-image: url('https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${info.id}.jpg');`"
+          :style="`background-image: url('image?id=${info.id}');`"
         ></div>
       </div>
       <div class="w-full p-3 leading-7">
@@ -42,8 +42,18 @@
         <p>
           <span class="font-bold pr-2">Dirección:</span> {{ info.direccion }}
         </p>
-        <p><span class="font-bold pr-2">Teléfono:</span>{{ info.telefono1 }}</p>
-        <p><span class="font-bold pr-2">Email:</span> {{ info.email }}</p>
+        <p>
+          <span class="font-bold pr-2">Teléfono:</span>
+          <a target="_blank" class="underline" :href="`tel:${info.telefono1}`">
+            {{ info.telefono1 }}
+          </a>
+        </p>
+        <p>
+          <span class="font-bold pr-2">Email:</span>
+          <a target="_blank" class="underline" :href="`mailto:${info.email}`">
+            {{ info.email }}
+          </a>
+        </p>
       </div>
     </div>
   </div>
