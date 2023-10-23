@@ -3,7 +3,7 @@ import path from "path";
 export default defineEventHandler(async (event) => {
   const { id } = getQuery(event);
   const url = `https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${id}.jpg`;
-  const file = path.join("./logo-guatape.png");
+  const file = path.resolve('./public',"./logo-guatape.png");
   let buffer = readFileSync(file);
   try {
     const blob: any = await $fetch(url, {
