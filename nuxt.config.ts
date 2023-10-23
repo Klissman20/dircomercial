@@ -1,9 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  ssr: false,
+  
   nitro: {
     preset: "vercel",
+    static: true,
   },
   css: ["~/assets/main.css"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
