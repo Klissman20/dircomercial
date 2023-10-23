@@ -1,6 +1,6 @@
-import { createReadStream } from "node:fs";
+//import { createReadStream } from "node:fs";
 //import path from "path";
-import { sendStream } from "h3";
+//import { sendStream } from "h3";
 export default defineEventHandler(async (event) => {
   const { id } = getQuery(event);
   const url = `https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${id}.jpg`;
@@ -14,5 +14,9 @@ export default defineEventHandler(async (event) => {
     const buffer = Buffer.from(arrayBuffer, "base64");
     return buffer;
   } catch (_) {}
-  return sendStream(event, createReadStream("./data/logo-guatape.png"));
+  const logo: any = await $fetch(`https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/logo-guatape.png`, {
+    method: "GET",
+  });
+  const arrayBuffer1 = await logo.arrayBuffer();
+  return Buffer.from(arrayBuffer1, "base64");
 });
