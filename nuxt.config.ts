@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   nitro: {
     preset: "vercel",
+    prerender: {
+      ignore: ['/data']
+    }
   },
   css: ["~/assets/main.css"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
