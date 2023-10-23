@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
     });
     const arrayBuffer = await blob.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer, "base64");
+    return buffer;
   } catch (_) {}
   return sendStream(event, createReadStream("./data/logo-guatape.png"));
 });
