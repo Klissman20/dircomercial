@@ -1,8 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <IndexSearch></IndexSearch>
-    <NuxtPage />
+    <slot />
     <PageFooter />
   </div>
 </template>
