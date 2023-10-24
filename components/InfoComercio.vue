@@ -1,7 +1,7 @@
 <template>
   <div class="mx-3">
     <div class="flex bg-[#FF9900] p-4 rounded-t-3xl">
-      <p class="text-2xl py-1 text-white w-full drop-shadow-md text-center">
+      <p class="text-lg md:text-2xl py-1 text-white w-full drop-shadow-md text-center">
         {{ info.razon_social }}
       </p>
       <button
@@ -25,15 +25,15 @@
       </button>
     </div>
     <div
-      class="sm:flex py-5 border border-[#707070] bg-white rounded-b-3xl border-t-0"
+      class="sm:flex md:py-5 border border-[#707070] py-1 bg-white rounded-b-3xl border-t-0 "
     >
-      <div class="w-full h-64 md:h-auto md:w-2/3 md:pl-2 md:pb-10">
+      <div class="w-full h-52 md:h-64 md:h-auto   md:w-2/3 md:pl-2 md:pb-10 ">
         <div
-          class="bg-contain bg-no-repeat bg-center border-[#707070] h-full text-[#707070] flex justify-center items-center"
-          :style="`background-image: url('image?id=${info.id}');`"
+          class="bg-contain bg-no-repeat bg-center border-[#707070] h-full text-[#707070] flex justify-center items-center rounded-2xl"
+          :style="`background-image: url('image?id=${info.id}'); `"
         ></div>
       </div>
-      <div class="w-full p-3 leading-7">
+      <div class="w-full px-5 leading-7 overflow-scroll h-72 my-4">
         <p><span class="font-bold pr-2">Nombre:</span>{{ info.nombre }}</p>
         <p><span class="font-bold pr-2">NIT:</span>{{ info.nit }}</p>
         <p>

@@ -47,14 +47,14 @@
         </li>
       </ul>
     </div>
-    <div class="flex lg:hidden w-1/2 mr-8 justify-end">
-      <button @click="modal = !modal" class="h-auto w-8">
+    <div class="flex lg:hidden p-8 justify-center ">
+      <button @click="modal = !modal" class="h-14  w-14">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           stroke="currentColor"
           stroke-width="1.5"
-          class="w-8 h-8"
+          class="w-8 h-8 mx-auto"
           viewBox="0 0 24 24"
         >
           <path
@@ -68,7 +68,9 @@
 
     <div
       :class="{ 'opacity-0 invisible translate-x-2 ': modal }"
-      class="bg-black bg-opacity-80 flex justify-end h-full fixed duration-300 w-full right-0 z-40"
+      
+      class="bg-black bg-opacity-50 flex justify-end h-full fixed duration-300 w-full right-0 z-40"
+      
     >
       <div class="p-2 bg-[#FF9900] w-4/5">
         <div class="flex justify-end">

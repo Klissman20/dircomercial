@@ -22,7 +22,7 @@
           >contactenos@guatape-antioquia.gov.co</a
         >
       </p>
-      <p><a href="www.municipiodeguatape.gov.co" target="_blank">www.municipiodeguatape.gov.co</a></p>
+      <p><a href="https://www.municipiodeguatape.gov.co" class="underline underline-offset-4" target="_blank">www.municipiodeguatape.gov.co</a></p>
     </div>
   </div>
 </template>
