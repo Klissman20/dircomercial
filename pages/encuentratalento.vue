@@ -20,6 +20,7 @@
           />
           <button
             @click="doClear"
+            v-if="search.length > 0"
             class="absolute rounded-full top-1 right-10 p-0.5 mt-1 mr-2 text-[#707070]"
           >
             <svg
@@ -39,7 +40,7 @@
           </button>
           <button
             @click="getTalentos"
-            class="pl-3 hover:scale-125 duration-100"
+            class="px-1 py-1 hover:scale-125 duration-100"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
