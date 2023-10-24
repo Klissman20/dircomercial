@@ -17,7 +17,7 @@
         :class="{ peer: persistent }"
       ></div>
       <div
-        class="mx-auto  max-w-3xl relative z-20 ease-in-out peer-active:scale-95 w-full duration-100"
+        class="mx-auto max-w-4xl relative z-20 ease-in-out peer-active:scale-95 w-full duration-100"
         :class="{ 'translate-y-10': !modelValue }"
       >
         <slot></slot>
