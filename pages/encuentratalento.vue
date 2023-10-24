@@ -66,20 +66,24 @@
         Resultados: {{ total }}
       </p>
       <div
-        class="w-3/4 grid min-h grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
+        class="w-3/4 grid min-h-[40vh] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
       >
         <div
           v-for="(talento, i) in talentos"
           :key="i"
-          class="border bg-[#FF9900] text-white bg-cover bg-center relative hover:font-bold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
+          class="border bg-[#FF9900] text-white bg-cover bg-center relative hover:font-semibold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
+          @click="setDetails(talento)"
         >
-          <div
-            @click="setDetails(talento)"
-            class="absolute inset-0 rounded-xl bg-gradient-to-b from-[#FF9900] to-transparent opacity-60"
-          ></div>
-          <p class="text-center text-shadow">
-            {{ talento.nombre }}
-          </p>
+          <div class="text-center">
+            <p class="text-xl">{{ talento.nombre }} {{ talento.apellido }}</p>
+            <p>{{ talento.objetivo }}</p>
+          </div>
+        </div>
+        <div
+          v-if="talentos?.length === 0"
+          class="w-full p-10 col-span-4 text-center"
+        >
+          No se encontraron resultados, intenta de nuevo.
         </div>
       </div>
       <Loading v-model="loading"></Loading>

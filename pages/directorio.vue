@@ -69,7 +69,7 @@
         Resultados: {{ total }}
       </p>
       <div
-        class="w-full md:w-3/4 grid min-h grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
+        class="w-full md:w-3/4 grid min-h-[40vh] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
       >
         <div
           class="cursor-pointer hover:font-semibold relative duration-150 hover:shadow-lg border mx-6 md:mx-2 my-4 md:my-2 m-2 hover:scale-110 rounded-xl"
@@ -88,6 +88,12 @@
               {{ comercio.razon_social }}
             </p>
           </div>
+        </div>
+        <div
+          v-if="comercios?.length === 0"
+          class="w-full p-10 col-span-4 text-center"
+        >
+          No se encontraron resultados, intenta de nuevo.
         </div>
       </div>
       <Loading v-model="loading"></Loading>
