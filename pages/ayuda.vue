@@ -26,7 +26,7 @@
       <div
         class="border absolute ml-10 border-[#707070] mt-3 md:mt-5 w-4/5 md:w-3/5   rounded-xl bg-[#FF9900]"
       >
-        <p class="text-white text-lg ml-16 py-3">Ingresa a este link</p>
+        <p class="text-white text-lg ml-16 py-3">Ingresa a este <NuxtLink class="hover:font-bold duration-75 underline py-1 rounded border px-6 hover:bg-[#e98222]" to="/comercio">link</NuxtLink></p>
       </div>
     </div>
 
@@ -36,7 +36,7 @@
       >
         <p class="text-[#707070] text-sm pl-6 pr-16 py-3">
           Ingresa el correo electrónico de tu empresa o establecimiento y luego
-          hacer clic en "Enviar". Debe ser el que tienes registrado en la cámara
+          hacer clic en "Enviar Token". Debe ser el que tienes registrado en la cámara
           de comercio.
         </p>
       </div>
@@ -46,11 +46,11 @@
         <p class="text-white text-4xl font-extrabold">2</p>
       </div>
     </div>
-    <div class="mt-10 md:mt-6 px-5 md:px-0">
+    <div class="mt-10 md:mt-6 py-5 px-5 md:px-0">
       <img
-        src="@/static/ayuda-1.jpg"
-        class="h-82 w-full md:w-1/3 mx-auto"
-        alt=""
+        src="@/static/ayuda-1.webp"
+        class="mx-auto px-10"
+        alt="Ayuda"
       />
     </div>
 
@@ -77,8 +77,7 @@
         class="border ml-10 border-[#707070] mt-2 md:mt-7  rounded-xl mr-10 bg-white"
       >
         <p class="text-[#707070] text-sm pl-6 pr-20 py-3">
-          Copia y pega en la casilla "Token" y luego hacer clic en "Obtener
-          Datos"
+          Copia y pega en la casilla "Token" y luego hacer clic en "Ingresar"
         </p>
       </div>
       <div
@@ -87,10 +86,10 @@
         <p class="text-white text-4xl font-extrabold">4</p>
       </div>
     </div>
-    <div class="mt-10 md:mt-6 px-5 md:px-0">
+    <div class="pt-8 md:mt-6 px-5 md:px-0">
       <img
-        src="@/static/ayuda-2.jpg"
-        class="h-82 w-full md:w-1/3 mx-auto"
+        src="@/static/ayuda-2.webp"
+        class="px-10 mx-auto"
         alt=""
       />
     </div>
@@ -105,16 +104,16 @@
         class="border absolute ml-10 border-[#707070] mt-5 w-4/5 md:w-3/5 lg:w-2/5 rounded-xl bg-[#FF9900]"
       >
         <p class="text-white text-sm md:text-md sm:text-sm pl-16 pr-4 py-3">
-          Ingresa a Selecciona un archivo" para escoger una foto o logo que
-          aparcera con tu información
+          Haz click en "Selecciona un archivo" para escoger una foto o logo que
+          aparecera con tu información y luego haz click en el botón "Confirmar Datos"
         </p>
       </div>
     </div>
 
-    <div class="mt-6 pb-20 px-5 md:px-0">
+    <div class="mt-16 md:mt-6 pb-20 px-5 md:px-0">
       <img
-        src="@/static/ayuda-3.jpg"
-        class="h-82 w-full md:w-1/2 mx-auto"
+        src="@/static/ayuda-3.webp"
+        class="px-10 mx-auto"
         alt=""
       />
     </div>

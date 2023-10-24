@@ -3,9 +3,9 @@
     class="relative duration-500 overflow-hidden fondo"
     :style="`height: ${open ? 600 : 0}px;`"
   >
-    <div class="text-center text-white flex flex-col max-w-3xl pt-20 px-6 mx-auto items-stretch">
-      <p class="text-4xl font-light pt-8">Directorio Comercial</p>
-      <p class="text-6xl font-light py-2">Guatapé</p>
+    <div class="text-center text-white flex flex-col max-w-3xl pt-14 md:pt-20 px-6 mx-auto items-stretch">
+      <p class="text-2xl md:text-4xl font-light pt-8">Directorio Comercial</p>
+      <p class="text-5xl md:text-6xl font-bold  py-2">Guatapé</p>
       <div class="flex gap-2 pt-5">
         <div class="w-full pt-3">
           <input
@@ -18,7 +18,7 @@
         </div>
         <NuxtLink
           to="/directorio"
-          class="pt-5 cursor-pointer hover:scale-125 duration-100"
+          class="h-10 px-2 mt-5  cursor-pointer hover:scale-125 duration-100 "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,16 +37,16 @@
         </NuxtLink>
       </div>
       <div
-        class="duration-300 overflow-hidden"
+        class="duration-300 overflow-hidden px-4 md:px-0"
         :class="{ 'opacity-0': !open }"
         :style="`height: ${open ? 200 : 0}px;`"
       >
-        <p class="text-xl font-light pt-20 pb-2">
+        <p class="text-xl font-light pt-16 md:pt-20 pb-2">
           Toda la oferta comercial de Guatapé en un solo lugar.
         </p>
         <NuxtLink
           to="/directorio"
-          class="text-xl hover:text-white hover:drop-shadow-xl hover:border font-light text-[#FF9900] p-1 rounded-sm px-6 transition-all bg-opacity-30 bg-black hover:underline duration-100 text-shadow hover:font-semibold"
+          class="text-xl hover:text-white hover:drop-shadow-xl hover:border font-light text-[#FF9900] p-1 rounded-sm px-6 transition-all bg-opacity-30 bg-transparent underline underline-offset-4 md:no-underline md:bg-black hover:underline duration-100 text-shadow hover:font-semibold"
         >
           Encuentra Aquí todo lo que buscas
         </NuxtLink>

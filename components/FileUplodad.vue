@@ -8,7 +8,7 @@
         type="file"
         id="fileInput"
         @change="uploadFile(id)"
-        class="mt-1 p-1 border rounded-md"
+        class="mt-1 p-1 border rounded-md text-white"
         ref="fileInput"
         accept="image/png, image/jpeg"
       />
@@ -18,7 +18,7 @@
         :disabled="fileInput === null"
         @click="clearFileInput"
         :class="{ 'bg-red-500': fileUrl !== null }"
-        class="text-white rounded-md mt-1 px-3"
+        class="text-white rounded-md mt-1 px-3 border border-white"
       >
         Limpiar
       </button>

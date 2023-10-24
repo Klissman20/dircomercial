@@ -24,16 +24,16 @@
         </svg>
       </button>
     </div>
-    <div class="pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0">
+    <div class="pt-5 border border-[#707070] bg-white rounded-b-3xl border-t-0 overflow-scroll h-[470px]">
       <div class="grid md:grid-cols-2 grid-cols-1 px-2 w-full">
-        <div class="w-full p-3 leading-7">
+        <div class="w-full px-3 leading-7 ">
           <p><strong>Nombre:</strong> {{ info.nombre }}</p>
           <p><strong>Apellido:</strong> {{ info.apellido }}</p>
           <p><strong>Email:</strong> {{ info.email }}</p>
           <p><strong>Teléfono:</strong> {{ info.telefono }}</p>
-          <p><strong>Objetivo:</strong> {{ info.objetivo }}</p>
+          <p><strong>Objetivo:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, non consectetur ipsam nam optio maxime veritatis explicabo, voluptas id voluptatum impedit voluptates tempora dolorem. Hic eum quaerat provident illo repellendus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore laudantium eligendi tempore hic iure totam iusto recusandae, delectus corporis facilis. Quo perspiciatis tempora explicabo itaque labore quibusdam consequuntur. Similique.</p>
         </div>
-        <div class="w-full p-3 leading-7">
+        <div class="w-full px-3 leading-7">
           <p><strong>Habilidades:</strong> {{ info.habilidades }}</p>
           <p><strong>Idiomas:</strong> {{ info.idiomas }}</p>
           <p><strong>Experiencia:</strong> {{ info.experiencia }}</p>
@@ -41,11 +41,11 @@
         </div>
       </div>
       <div class="px-5 font-semibold">Educación:</div>
-      <div class="m-2 bg-gray-200 rounded-2xl text-sm">
+      <div class="mx-4 mb-4 mt-1 bg-gray-200 rounded-2xl text-sm overflow-auto h-40" v-if="educacion.length > 0">
         <div
           v-for="(educa, i) in educacion"
           :key="i"
-          class="w-full px-3 py-2 grid grid-cols-2"
+          class="w-full p-5 grid grid-cols-2"
         >
           <div>
             <strong>Título del Grado o Certificado</strong><br />
@@ -63,7 +63,9 @@
             <strong>Fechas de Asistencia</strong><br />
             <p>{{ educa.fechas }}</p>
           </div>
+       
         </div>
+        
       </div>
     </div>
   </div>
