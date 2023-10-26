@@ -59,11 +59,26 @@
             />
           </svg>
           <input
+            v-if="showPassword"
             v-model="passInput"
             type="text"
             placeholder="Contraseña"
             class="placeholder:text-center focus:border-gray-600 focus:outline-none pr-6 w-full border pl-10 border-white p-2 rounded-2xl text-center"
           />
+          <input v-else type="password" placeholder="Contraseña" class="placeholder:text-center focus:border-gray-600 focus:outline-none pr-6 w-full border pl-10 border-white p-2 rounded-2xl text-center" v-model="passInput" />
+          <div class="control">
+            <button class="button" @click="toggleShow">
+              <span class="icon is-small is-right">
+                <i
+                  class="fas"
+                  :class="{
+                    'fa-eye-slash': showPassword,
+                    'fa-eye': !showPassword,
+                  }"
+                ></i>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <p class="text-center mt-4 text-sm text-red-600">
@@ -89,16 +104,26 @@ const passAdmin = runtimeConfig.public.passAdmin;
 const userInput = ref("");
 const passInput = ref("");
 
+const showPassword = ref(false);
+
 const msg = ref("");
 
 const router = useRouter();
+
+const authenticate = useState("authenticate", () => false);
 
 const logIn = () => {
   if (userInput.value === userAdmin && passInput.value === passAdmin) {
     router.push("/admin/comercios");
     msg.value = "";
+    authenticate.value = true;
   } else {
     msg.value = "Usuario o contraseña incorrectos";
+    authenticate.value = false;
   }
+};
+
+const toggleShow = () => {
+  showPassword.value = !showPassword.value;
 };
 </script>
