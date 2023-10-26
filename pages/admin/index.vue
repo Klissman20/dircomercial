@@ -35,9 +35,10 @@
             />
           </svg>
           <input
+            v-model="userInput"
             type="text"
             placeholder="Usuario"
-            class="placeholder:text-center focus:border-gray-600  focus:outline-none pr-6 w-full pl-10 border border-white p-2 rounded-2xl"
+            class="placeholder:text-center focus:border-gray-600 focus:outline-none pr-6 w-full pl-10 border border-white p-2 rounded-2xl text-center"
           />
         </div>
       </div>
@@ -58,19 +59,46 @@
             />
           </svg>
           <input
+            v-model="passInput"
             type="text"
             placeholder="Contraseña"
-            class="placeholder:text-center focus:border-gray-600  focus:outline-none pr-6 w-full border pl-10 border-white p-2 rounded-2xl"
+            class="placeholder:text-center focus:border-gray-600 focus:outline-none pr-6 w-full border pl-10 border-white p-2 rounded-2xl text-center"
           />
         </div>
       </div>
-      <NuxtLink to="/admin/comercios">
-        <p
-          class="w-1/2 mt-6 hover:scale-105 duration-100 ease-out mx-auto border border-white p-2 text-white rounded-2xl"
-        >
-          Ingresar
-        </p>
-      </NuxtLink>
+      <p class="text-center mt-4 text-sm text-red-600">
+        {{ msg }}
+      </p>
+      <button
+        @click="logIn"
+        class="w-1/2 mt-6 hover:scale-105 duration-100 ease-out mx-auto border border-white p-2 text-white rounded-2xl"
+        type="button"
+      >
+        Ingresar
+      </button>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+const runtimeConfig = useRuntimeConfig();
+
+const userAdmin = runtimeConfig.public.userAdmin;
+const passAdmin = runtimeConfig.public.passAdmin;
+
+const userInput = ref("");
+const passInput = ref("");
+
+const msg = ref("");
+
+const router = useRouter();
+
+const logIn = () => {
+  if (userInput.value === userAdmin && passInput.value === passAdmin) {
+    router.push("/admin/comercios");
+    msg.value = "";
+  } else {
+    msg.value = "Usuario o contraseña incorrectos";
+  }
+};
+</script>

@@ -18,6 +18,8 @@ export default defineNuxtConfig({
       baseUrl: process.env.BASE_URL || "http://localhost:3000",
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+      userAdmin: process.env.NUXT_PUBLIC_USER_ADMIN,
+      passAdmin: process.env.NUXT_PUBLIC_PASS_ADMIN,
     },
   },
 });
