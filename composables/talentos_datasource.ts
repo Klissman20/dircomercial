@@ -3,7 +3,8 @@ import { Database } from "~/models/database.types";
 export const useTalentoSBDatasource = () => {
   const client = useSupabaseClient<Database>();
 
-  const getDataTalentos = async (
+
+  const getAllData = async (
     start: number,
     end: number,
     search: string
@@ -20,11 +21,43 @@ export const useTalentoSBDatasource = () => {
     }
   };
 
+  
+  const countAllData = async (search: string) => {
+    try {
+      const { count } = await client
+        .from("talentodb")
+        .select("id", { count: "exact", head: true })
+        .or(`objetivo.ilike.%${search}%,nombre.ilike.%${search}%`);
+      return count as number;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getDataTalentos = async (
+    start: number,
+    end: number,
+    search: string
+  ) => {
+    try {
+      const { data } = await client
+        .from("talentodb")
+        .select("*")
+        .range(start, end)
+        .is("visible", true)
+        .or(`objetivo.ilike.%${search}%,nombre.ilike.%${search}%`);
+      return data as Talento[];
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const countDataTalentos = async (search: string) => {
     try {
       const { count } = await client
         .from("talentodb")
         .select("id", { count: "exact", head: true })
+        .is("visible", true)
         .or(`objetivo.ilike.%${search}%,nombre.ilike.%${search}%`);
       return count as number;
     } catch (error) {
@@ -72,5 +105,7 @@ export const useTalentoSBDatasource = () => {
     getDataTalentoByEmail,
     saveDataTalento,
     deleteDataTalento,
+    getAllData,
+    countAllData
   };
 };

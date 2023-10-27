@@ -3,7 +3,7 @@ import { Database } from "~/models/database.types";
 export const useSupabaseDatasource = () => {
   const client = useSupabaseClient<Database>();
 
-  const getDataComercios = async (
+  const getAllData = async (
     start: number,
     end: number,
     search: string
@@ -20,11 +20,42 @@ export const useSupabaseDatasource = () => {
     }
   };
 
+  const countAllData = async (search: string) => {
+    try {
+      const { count } = await client
+        .from("comerciosdb")
+        .select("id", { count: "exact", head: true })
+        .ilike("razon_social", `%${search}%`);
+      return count as number;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getDataComercios = async (
+    start: number,
+    end: number,
+    search: string
+  ) => {
+    try {
+      const { data } = await client
+        .from("comerciosdb")
+        .select("*")
+        .range(start, end)
+        .is("visible", true)
+        .ilike("razon_social", `%${search}%`);
+      return data as Comercio[];
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const countDataComercios = async (search: string) => {
     try {
       const { count } = await client
         .from("comerciosdb")
         .select("id", { count: "exact", head: true })
+        .is("visible", true)
         .ilike("razon_social", `%${search}%`);
       return count as number;
     } catch (error) {
@@ -72,5 +103,8 @@ export const useSupabaseDatasource = () => {
     getDataComercioByEmail,
     saveDataComercio,
     deleteDataComercio,
+    getAllData,
+    countAllData
+
   };
 };
