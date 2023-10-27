@@ -27,7 +27,6 @@
         <form action="" @submit.prevent="getTalentos" class="w-1/2 flex">
           <input
             v-model="search"
-            required
             type="text"
             placeholder="Buscar Talento"
             class="border border-[#707070] w-full rounded-xl p-2 px-6"
@@ -173,8 +172,11 @@
     <Loading v-model="loading"></Loading>
 
     <Modal v-model="modal" @close="modal = false">
-      <div class="h-[80vh] bg-white p-1 rounded-md overflow-y-auto">
-        <FormHojadevida :talento="talento"></FormHojadevida>
+      <div class="px-1 py-2 rounded-xl bg-gray-300">
+        <VisibleOculto v-if="authenticate" v-model="talento.visible" />
+        <div class="h-[75vh] bg-white p-1 rounded-md overflow-y-auto">
+          <FormHojadevida :talento="talento"></FormHojadevida>
+        </div>
       </div>
     </Modal>
   </div>
@@ -183,7 +185,7 @@
 <script lang="ts" setup>
 import { Talento } from "~/models/talento_model";
 const authenticate = useState("authenticate");
-const { getDataTalentos, countDataTalentos, deleteDataTalento } =
+const { getAllData, countAllData, deleteDataTalento } =
   useTalentoSBDatasource();
 
 const loading = ref(false);
@@ -221,8 +223,8 @@ const deleteTalento = async (id: number) => {
 const getTalentos = async () => {
   const query = search.value;
   loading.value = true;
-  const data = await getDataTalentos(start.value, end.value, query);
-  const count = await countDataTalentos(query);
+  const data = await getAllData(start.value, end.value, query);
+  const count = await countAllData(query);
   loading.value = false;
   if (!data) console.log(data);
   talentos.value = data;

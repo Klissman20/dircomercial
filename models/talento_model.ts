@@ -11,4 +11,5 @@ export interface Talento {
   objetivo: string;
   telefono: number | null;
   token: string | null;
+  visible: boolean;
 }

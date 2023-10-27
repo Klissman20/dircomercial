@@ -30,7 +30,6 @@
           <input
             type="text"
             v-model="search"
-            required
             placeholder="Buscar Comercios"
             class="border border-[#707070] w-full rounded-xl p-2 px-6"
           />
@@ -175,8 +174,11 @@
     <Loading v-model="loading"></Loading>
 
     <Modal v-model="modal" @close="modal = false">
-      <div class="h-[80vh] bg-white p-1 rounded-md overflow-y-auto">
-        <FormComercio :comercio="comercio"></FormComercio>
+      <div class="px-1 py-2 rounded-xl bg-gray-300">
+        <VisibleOculto v-if="authenticate" v-model="comercio.visible" />
+        <div class="h-[75vh] p-1 overflow-y-auto">
+          <FormComercio :comercio="comercio"></FormComercio>
+        </div>
       </div>
     </Modal>
   </div>
@@ -185,7 +187,7 @@
 <script lang="ts" setup>
 import { Comercio } from "@/models/comercio_model";
 const authenticate = useState("authenticate");
-const { getDataComercios, countDataComercios, deleteDataComercio } =
+const { getAllData, countAllData, deleteDataComercio } =
   useSupabaseDatasource();
 
 const loading = ref(false);
@@ -223,8 +225,8 @@ const deleteComercio = async (id: number) => {
 const getComercios = async () => {
   const query = search.value;
   loading.value = true;
-  const data = await getDataComercios(start.value, end.value, query);
-  const count = await countDataComercios(query);
+  const data = await getAllData(start.value, end.value, query);
+  const count = await countAllData(query);
   loading.value = false;
   if (!data) console.log(data);
   comercios.value = data;
@@ -234,6 +236,11 @@ const getComercios = async () => {
 const setPage = (pag: number) => {
   page.value = pag;
   getComercios();
+};
+
+const closeModal = () => {
+  comercio.value = {} as Comercio;
+  modal.value = false;
 };
 
 // Mounted
