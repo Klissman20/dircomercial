@@ -1,36 +1,65 @@
 <template>
   <div>
     <div class="bg-[#FF9900]">
-      <div class="flex pt-6">
-        <div class="w-1/2 flex justify-center">
+      <div class="block md:flex pt-6">
+        <div class="w-full md:w-1/2 flex justify-center">
           <h3 class="text-2xl font-bold text-white">Administrador Talentos</h3>
         </div>
-        <div class="flex w-1/2 gap-4 justify-center">
+        <div class="flex w-full mt-4 md:w-1/2 gap-4 justify-center">
           <NuxtLink
             to="/admin/comercios"
-            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out"
+            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
           >
             Comercios
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 ml-2 mt-0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
           </NuxtLink>
 
           <NuxtLink
             to="/admin"
-            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out"
+            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
           >
-            Salir
+            Salir <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 ml-2 mt-0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg>
           </NuxtLink>
         </div>
       </div>
 
       <hr class="border-orange-300 mt-4 w-2/3 mx-auto" />
-      <div class="flex justify-around pt-6 pb-10">
-        <form action="" @submit.prevent="getTalentos" class="w-1/2 flex">
-          <input
+      <div class="block md:flex mx-6 md:mx-2 justify-around pt-6 pb-10">
+        <form action="" @submit.prevent="getTalentos" class="w-full md:w-1/2 flex">
+        
+        
+        
+        
+        
+        
+          <div class="relative w-full">
+            <input
             v-model="search"
             type="text"
             placeholder="Buscar Talento"
             class="border border-[#707070] w-full rounded-xl p-2 px-6"
-          />
+            />
+            <button
+            v-if="search.length > 0"
+              @click="doClear"
+              class="absolute rounded-full top-1 right-1 p-0.5 mt-1 mr-2 text-[#707070]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
           <button
             type="submit"
             class="py-1 px-1 ml-2 hover:scale-125 duration-100"
@@ -51,18 +80,19 @@
             </svg>
           </button>
         </form>
-        <div>
+        <div class="mt-4 md:mt-0 flex justify-center">
           <button
             @click="addTalento"
-            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out"
+            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
           >
             Añadir Talento
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 ml-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
           </button>
         </div>
       </div>
     </div>
 
-    <div class="max-w-6xl pt-4 pl-4 mx-auto">Resultados: {{ total }}</div>
+    <div class="max-w-6xl pt-4 pl-10 md:pl-4 mx-auto">Resultados: {{ total }}</div>
 
     <div
       class="px-6 py-2 bg-gray-100 mx-10 rounded-xl mt-4 border border-gray-300"
@@ -172,9 +202,15 @@
     <Loading v-model="loading"></Loading>
 
     <Modal v-model="modal" @close="modal = false">
+      
       <div class="px-1 py-2 rounded-xl bg-gray-300">
-        <VisibleOculto v-if="authenticate" v-model="talento.visible" />
-        <div class="h-[75vh] bg-white p-1 rounded-md overflow-y-auto">
+        <div class="flex ">
+
+          <VisibleOculto class="w-full pb-2" v-if="authenticate" v-model="talento.visible" />
+          <button @click="modal = !modal">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8 mr-2 stroke-[#707070]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></button>
+        </div>
+        <div class="h-[75vh] bg-white px-1 rounded-md overflow-y-auto ">
           <FormHojadevida :talento="talento"></FormHojadevida>
         </div>
       </div>
@@ -233,6 +269,11 @@ const getTalentos = async () => {
 
 const setPage = (pag: number) => {
   page.value = pag;
+  getTalentos();
+};
+const doClear = () => {
+  search.value = "";
+  page.value = 1;
   getTalentos();
 };
 

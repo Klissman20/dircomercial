@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-[url('@/static/foto-directorio-comercial.png')] py-20">
+  <div class="bg-[url('@/static/foto-directorio-comercial.png')] sm:py-20">
     <div
-      class="w-1/2 mx-auto bg-black bg-opacity-30 text-center py-14 p-4 rounded-3xl"
+      class="w-full sm:w-2/3  md:w-1/2 mx-auto bg-black bg-opacity-20 sm:bg-opacity-30 text-center py-20 md:py-14 p-4  sm:rounded-3xl"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
       </svg>
 
       <form action="" @submit.prevent="logIn">
-        <div class="w-1/2 mx-auto">
+        <div class="w-3/4 md:w-1/2 mx-auto">
           <div class="relative w-full mt-8">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
             />
           </div>
         </div>
-        <div class="w-1/2 mx-auto">
+        <div class="w-3/4 md:w-1/2 mx-auto">
           <div class="relative w-full mt-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@
         </p>
         <button
           type="submit"
-          class="w-1/2 mt-6 hover:scale-105 duration-100 ease-out mx-auto border border-white p-2 text-white rounded-2xl"
+          class="w-3/4 md:w-1/2 mt-6 hover:scale-105 duration-100 ease-out mx-auto border border-white p-2 text-white rounded-2xl"
         >
           Ingresar
         </button>

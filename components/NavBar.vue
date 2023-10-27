@@ -47,7 +47,7 @@
         </li>
       </ul>
     </div>
-    <div class="flex lg:hidden p-8 justify-center ">
+    <div class="flex lg:hidden p-8 justify-end w-1/2">
       <button @click="modal = !modal" class="h-14  w-14">
         <svg
           xmlns="http://www.w3.org/2000/svg"
