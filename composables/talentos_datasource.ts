@@ -56,11 +56,21 @@ export const useTalentoSBDatasource = () => {
     }
   };
 
+  const deleteDataTalento = async (id: number) => {
+    try {
+      const { error } = await client.from("talentodb").delete().eq("id", id);
+      return error;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     client,
     getDataTalentos,
     countDataTalentos,
     getDataTalentoByEmail,
     saveDataTalento,
+    deleteDataTalento,
   };
 };

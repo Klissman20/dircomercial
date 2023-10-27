@@ -56,11 +56,21 @@ export const useSupabaseDatasource = () => {
     }
   };
 
+  const deleteDataComercio = async (id: number) => {
+    try {
+      const { error } = await client.from("comerciosdb").delete().eq("id", id);
+      return error;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     client,
     getDataComercios,
     countDataComercios,
     getDataComercioByEmail,
     saveDataComercio,
+    deleteDataComercio,
   };
 };
