@@ -19,4 +19,5 @@ export interface Comercio {
   telefono2: number | null;
   telefono3: number | null;
   token: string | null;
+  visible: boolean;
 }
