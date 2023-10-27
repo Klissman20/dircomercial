@@ -3,6 +3,21 @@
     <h2 class="text-4xl pt-8 font-bold text-white">Formulario</h2>
     <hr class="my-6" />
 
+    <div v-if="authenticated" class="mb-6">
+      <input
+        id="default-checkbox"
+        type="checkbox"
+        v-model="comercio.visible"
+        value=""
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <label
+        for="default-checkbox"
+        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Visible en la página</label
+      >
+    </div>
+
     <form @submit.prevent="saveComercio">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
         <div>
@@ -35,7 +50,8 @@
           <textarea
             id="actividad"
             v-model="comercio.actividad"
-            rows="3" max="600"
+            rows="3"
+            max="600"
             name="actividad"
             type="text"
             class="border rounded w-full p-1 mt-2 focus:outline-none text-[#707070]"
@@ -258,6 +274,8 @@
 <script lang="ts" setup>
 import { Comercio } from "~/models/comercio_model";
 const { saveDataComercio } = useSupabaseDatasource();
+
+const authenticated = useState("authenticate", () => false);
 
 const props = defineProps({
   comercio: {
