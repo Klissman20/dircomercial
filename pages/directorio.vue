@@ -69,7 +69,7 @@
         Resultados: {{ total }}
       </p>
       <div
-        class="w-full md:w-3/4 grid min-h-[40vh] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
+        class="w-full md:w-3/4 grid min-h-[40vh] gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto rounded-lg"
       >
         <div
           class="cursor-pointer hover:font-semibold relative duration-150 hover:shadow-lg border mx-6 md:mx-2 my-4 md:my-2 m-2 hover:scale-110 rounded-xl"
@@ -78,16 +78,16 @@
           @click="setDetails(comercio)"
         >
           <div
-            class="absolute bottom-0 bg-gradient-to-b from-35% from-[#ff9900ea] to-[#e6750b] rounded-b-xl h-[40%] w-full"
-          ></div>
-          <div
-            class="bg-contain rounded-lg p-3 bg-no-repeat bg-top border-[#707070] md:m-3 text-white h-56 flex justify-center items-end"
-            :style="`background-image: url('image?id=${comercio.id}');`"
+            class="absolute bottom-0 flex items-center bg-gradient-to-b from-35% from-[#ff9900ea] to-[#e6750b] rounded-b-xl h-[40%] w-full"
           >
-            <p class="text-center relative z-10 text-shadow w-full pt-4">
+            <p class="text-center text-shadow w-full pt-4 text-white">
               {{ comercio.razon_social }}
             </p>
           </div>
+          <div
+            class="bg-contain rounded-lg p-3 bg-no-repeat bg-top border-[#707070] md:m-3 h-56 flex justify-center items-end"
+            :style="`background-image: url('image?id=${comercio.id}');`"
+          ></div>
         </div>
         <div
           v-if="comercios?.length === 0"
