@@ -18,59 +18,91 @@
         />
       </svg>
 
-      <div class="w-1/2 mx-auto">
-        <div class="relative w-full mt-8">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            class="w-6 h-6 absolute stroke-gray-500 left-3 top-2.5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+      <form action="" @submit.prevent="logIn">
+        <div class="w-1/2 mx-auto">
+          <div class="relative w-full mt-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="w-6 h-6 absolute stroke-gray-500 left-3 top-2.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+              />
+            </svg>
+            <input
+              v-model="userInput"
+              type="text"
+              required
+              placeholder="Usuario"
+              class="placeholder:text-center focus:border-gray-600 focus:outline-none pr-6 w-full pl-10 border border-white p-2 rounded-2xl text-center"
             />
-          </svg>
-          <input
-            type="text"
-            placeholder="Usuario"
-            class="placeholder:text-center focus:border-gray-600  focus:outline-none pr-6 w-full pl-10 border border-white p-2 rounded-2xl"
-          />
+          </div>
         </div>
-      </div>
-      <div class="w-1/2 mx-auto">
-        <div class="relative w-full mt-6">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            class="w-6 h-6 absolute stroke-gray-500 left-3 top-2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25z"
+        <div class="w-1/2 mx-auto">
+          <div class="relative w-full mt-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="w-6 h-6 absolute stroke-gray-500 left-3 top-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25z"
+              />
+            </svg>
+            <input
+              type="password"
+              placeholder="Contraseña"
+              class="placeholder:text-center focus:border-gray-600 focus:outline-none pr-6 w-full border pl-10 border-white p-2 rounded-2xl text-center"
+              v-model="passInput"
             />
-          </svg>
-          <input
-            type="text"
-            placeholder="Contraseña"
-            class="placeholder:text-center focus:border-gray-600  focus:outline-none pr-6 w-full border pl-10 border-white p-2 rounded-2xl"
-          />
+          </div>
         </div>
-      </div>
-      <NuxtLink to="/admin/comercios">
-        <p
+        <p class="text-center mt-4 text-sm text-red-600">
+          {{ msg }}
+        </p>
+        <button
+          type="submit"
           class="w-1/2 mt-6 hover:scale-105 duration-100 ease-out mx-auto border border-white p-2 text-white rounded-2xl"
         >
           Ingresar
-        </p>
-      </NuxtLink>
+        </button>
+      </form>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+const runtimeConfig = useRuntimeConfig();
+
+const userAdmin = runtimeConfig.public.userAdmin;
+const passAdmin = runtimeConfig.public.passAdmin;
+
+const userInput = ref("");
+const passInput = ref("");
+
+const msg = ref("");
+
+const authenticate = useState("authenticate", () => false);
+
+const logIn = () => {
+  if (userInput.value === userAdmin && passInput.value === passAdmin) {
+    navigateTo("/admin/comercios");
+    msg.value = "";
+    authenticate.value = true;
+  } else {
+    msg.value = "Usuario o contraseña incorrectos";
+    authenticate.value = false;
+  }
+};
+</script>
