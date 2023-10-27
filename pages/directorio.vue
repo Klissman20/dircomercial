@@ -179,7 +179,7 @@ const comercios = ref<Comercio[]>();
 const total = ref(0);
 const page = ref(1);
 
-const search = useState<string>("search");
+const search = useState<string>("search", () => "");
 const { getDataComercios, countDataComercios } = useSupabaseDatasource();
 // Computed
 const pages = computed(() => {
