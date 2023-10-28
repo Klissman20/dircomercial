@@ -224,7 +224,7 @@
         </div>
       </div>
       <hr class="mt-10" />
-      <div class="flex justify-end gap-4">
+      <div class="block md:flex justify-end gap-4">
         <div
           :class="{ 'scale-0': !msg }"
           class="p-2 border h-12 border-green-600 duration-100 rounded w-full text-green-600 bg-green-200 mt-2 flex"
@@ -246,7 +246,7 @@
           <p class="ml-4">{{ msg }}</p>
         </div>
         <button
-          class="hover:scale-105 duration-100 w-1/3 ease-out text-white border border-white p-2.5 px-6 my-2 rounded"
+          class="hover:scale-105 duration-100 w-full md:w-1/3 ease-out text-white border border-white p-2.5 px-6 mb-4 md:mt-4  rounded"
           type="submit"
         >
           Confirmar Datos
