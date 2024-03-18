@@ -8,18 +8,44 @@
         <div class="flex w-full mt-4 md:mt-0 md:w-1/2 gap-4 justify-center">
           <NuxtLink to="/admin/talentos">
             <p
-            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
+              class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
             >
-            Talentos 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 ml-2 mt-0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+              Talentos
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                class="w-5 h-5 ml-2 mt-0.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
+                />
+              </svg>
             </p>
           </NuxtLink>
           <NuxtLink to="/admin">
             <p
-            class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
+              class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
             >
-            Salir
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 ml-2 mt-0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg>
+              Salir
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                class="w-5 h-5 ml-2 mt-0.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
+                />
+              </svg>
             </p>
           </NuxtLink>
         </div>
@@ -37,6 +63,7 @@
             <input
               type="text"
               v-model="search"
+              @keydown.enter="getComercios"
               placeholder="Buscar Comercios"
               class="border border-[#707070] w-full rounded-xl p-2 px-6"
             />
@@ -86,26 +113,64 @@
             @click="addComercio"
             class="border border-white text-white rounded-xl p-2 px-6 hover:scale-105 duration-100 ease-out flex"
           >
-            Añadir Comercio <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 ml-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            Añadir Comercio
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="w-6 h-6 ml-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
           </button>
         </div>
       </div>
     </div>
 
-    <div class="max-w-6xl pt-4 pl-4 mx-auto">Resultados: {{ total }}</div>
+    <div class="max-w-6xl py-4 pl-4 mx-auto font-bold">
+      Resultados: <span class="font-thin"> {{ total }}</span>
+    </div>
+    <div
+      class="hidden md:flex text-md px-8 py-2 text-center bg-gray-100 mx-6 md:mx-10 rounded-xl gap-5 border border-gray-300 font-bold"
+    >
+      <div class="w-1/4" >
+        <button @click="setOrderBy('razon_social')" class="flex gap-2 m-auto" >Razon Social <IconsArrow class="w-3 pt-1.5 stroke-2" /></button>
+      </div>
+      <div class="w-1/5">
+        <button class="flex gap-2 m-auto" @click="setOrderBy('email')">Email <IconsArrow class="w-3 pt-1.5 stroke-2" /></button>
+      </div>
+      <div class="w-1/5">
+        <button class="flex gap-2 m-auto" @click="setOrderBy('telefono1')">Teléfono<IconsArrow class="w-3 pt-1.5 stroke-2" /></button>
+      </div>
+      <div class="w-1/5">
+        <button class="flex gap-2 m-auto" @click="setOrderBy('direccion')">Dirección<IconsArrow class="w-3 pt-1.5 stroke-2" /></button>
+      </div>
+    </div>
     <div
       class="px-6 py-2 bg-gray-100 mx-6 md:mx-10 rounded-xl mt-4 border border-gray-300"
     >
       <div
         v-for="(item, i) in comercios"
         :key="i"
-        class="block md:flex border-b border-gray-300 pt-2"
+        class="block md:flex border-b border-gray-300 pt-2 gap-5"
       >
-        <div class="w-full">
+        <div class="w-full md:w-1/4">
           <p class="font-bold">{{ item.razon_social }}</p>
         </div>
-        <div class="w-full">
+        <div class="w-full md:w-1/5 text-sm">
           <p>{{ item.email }}</p>
+        </div>
+        <div class="w-full md:w-1/5 md:text-center">
+          <p>{{ item.telefono1 }}</p>
+        </div>
+        <div class="w-full md:w-1/5">
+          <p class="font-bold">{{ item.direccion }}</p>
         </div>
         <div class="flex justify-end pb-2 gap-3 pr-2">
           <button
@@ -237,7 +302,7 @@
 <script lang="ts" setup>
 import { Comercio } from "@/models/comercio_model";
 const authenticate = useState("authenticate");
-const { getAllData, countAllData, deleteDataComercio } =
+const { getDataComercios, countDataComercios, deleteDataComercio } =
   useSupabaseDatasource();
 
 const loading = ref(false);
@@ -247,6 +312,9 @@ const comercio = ref({} as Comercio);
 const search = ref("");
 const total = ref(0);
 const page = ref(1);
+
+const field = ref('');
+const asc = ref(true);
 
 // Computed
 const pages = computed(() => Math.ceil(total.value / 20));
@@ -258,6 +326,11 @@ const addComercio = () => {
   comercio.value = {} as Comercio;
   modal.value = true;
 };
+
+const setOrderBy = async (text : string) => {
+  field.value = text
+  comercios.value = await getDataComercios(start.value, end.value, search.value, field.value);
+}
 
 const editComercio = (item: Comercio) => {
   comercio.value = { ...item };
@@ -275,14 +348,13 @@ const deleteComercio = async (id: number) => {
 const getComercios = async () => {
   const query = search.value;
   loading.value = true;
-  const data = await getAllData(start.value, end.value, query);
-  const count = await countAllData(query);
+  const data = await getDataComercios(start.value, end.value, query, field.value);
+  const count = await countDataComercios(query);
   loading.value = false;
   if (!data) console.log(data);
   comercios.value = data;
   total.value = count ?? 0;
 };
-
 const setPage = (pag: number) => {
   page.value = pag;
   getComercios();

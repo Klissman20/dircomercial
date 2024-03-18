@@ -35,15 +35,19 @@ export const useSupabaseDatasource = () => {
   const getDataComercios = async (
     start: number,
     end: number,
-    search: string
+    search: string,
+    order?: string
   ) => {
     try {
-      const { data } = await client
+      const newClient = client
         .from("comerciosdb")
         .select("*")
         .range(start, end)
-        .is("visible", true)
-        .ilike("razon_social", `%${search}%`);
+        .ilike("razon_social", `%${search}%`)
+
+      const { data } =  order
+          ? await newClient.is("visible", true).order(order, { ascending: true })
+          : await newClient.is("visible", true)
       return data as Comercio[];
     } catch (error) {
       console.log(error);
