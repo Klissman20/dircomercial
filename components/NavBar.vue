@@ -2,7 +2,7 @@
   <nav class="flex max-w-7xl m-auto">
     <div class="md:w-2/5 py-3 pl-14">
       <NuxtLink to="/">
-        <img src="@/static/logotipo.png" class="w-full md:w-72 p-3" alt="" />
+        <img src="/logotipo.png" class="w-full md:w-72 p-3" alt="" />
       </NuxtLink>
     </div>
     <div class="w-full items-end justify-center hidden lg:flex">
@@ -202,7 +202,7 @@
             >
           </div>
           <div class="pt-28">
-            <img src="@/static/logotipo.png" class="w-full px-10 " alt="" />
+            <img src="/logotipo.png" class="w-full px-10 " alt="" />
           </div>
         </div>
       </div>
