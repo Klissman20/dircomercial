@@ -1,6 +1,10 @@
 //import { createReadStream } from "node:fs";
 //import path from "path";
 //import { sendStream } from "h3";
+
+import fs from 'fs';
+import path from 'path';
+
 export default defineEventHandler(async (event) => {
   const { id } = getQuery(event);
   const url = `https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${id}.jpg`;
@@ -14,9 +18,12 @@ export default defineEventHandler(async (event) => {
     const buffer = Buffer.from(arrayBuffer, "base64");
     return buffer;
   } catch (_) {}
-  const logo: any = await $fetch(`https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/logo-guatape.png`, {
-    method: "GET",
-  });
-  const arrayBuffer1 = await logo.arrayBuffer();
-  return Buffer.from(arrayBuffer1, "base64");
+  // const logo: any = await $fetch(`https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/logo-guatape.png`, {
+  //   method: "GET",
+  // });
+  // const arrayBuffer1 = await logo.arrayBuffer();
+  // return Buffer.from(arrayBuffer1, "base64");
+  let logoPath = path.join(process.cwd(), 'static', 'Logotipo.png');
+  let logo = fs.readFileSync(logoPath)
+  return logo;
 });
