@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   // });
   // const arrayBuffer1 = await logo.arrayBuffer();
   // return Buffer.from(arrayBuffer1, "base64");
-  let logoPath = path.join(process.cwd(), '.output/public/logompio.png');
+  let logoPath = path.join(process.cwd(), '.vercel/output/static/logompio.png');
   console.log(logoPath)
   let logo = fs.readFileSync(logoPath)
   return logo;
