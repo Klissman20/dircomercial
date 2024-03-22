@@ -2,7 +2,7 @@ const runtimeConfig = useRuntimeConfig()
 export default defineEventHandler(async (event) => {
   const { id } = getQuery(event);
   const url = `https://sbnpljpwdvevewdhzkwv.supabase.co/storage/v1/object/public/images/${id}.jpg`;
-  console.log(runtimeConfig.public.baseUrl)
+
   try {
     const blob: any = await $fetch(url, {
       method: "GET",
@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     return buffer;
   } catch (_) {}
   try {
-    const blob: any = await $fetch(runtimeConfig.public.baseUrl + '/logompio.png', {
+    const blob: any = await $fetch('https://dircomercial.vercel.app/logompio.png', {
       method: "GET",
     });
     const arrayBuffer = await blob.arrayBuffer();
