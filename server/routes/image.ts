@@ -23,11 +23,10 @@ export default defineEventHandler(async (event) => {
   // });
   // const arrayBuffer1 = await logo.arrayBuffer();
   // return Buffer.from(arrayBuffer1, "base64");
-  let logoPath = path.join(process.cwd(), './');
+  let logoPath = path.join(process.cwd(), './___vc/');
   fs.readdirSync(logoPath).forEach(file => {
     console.log(file);
   });
-  console.log(logoPath)
   let logo = fs.readFileSync(logoPath);
   return logo;
 });
