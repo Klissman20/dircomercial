@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      baseUrl: process.env.BASE_URL || "http://localhost:3000",
+      baseUrl: process.env.NUXT_ENV_VERCEL_URL || "http://localhost:3000",
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
       userAdmin: process.env.NUXT_PUBLIC_USER_ADMIN,
