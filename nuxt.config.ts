@@ -6,6 +6,7 @@ export default defineNuxtConfig({
       "/data": { isr: false },
     },
   },
+  ssr: false,
   css: ["~/assets/main.css"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
   supabase: {
