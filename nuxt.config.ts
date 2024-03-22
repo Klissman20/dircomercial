@@ -1,12 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   nitro: {
-    // preset: "vercel",
-    routeRules: {
-      "/data": { isr: false },
-    },
+    preset: "vercel",
   },
-  ssr: false,
   css: ["~/assets/main.css"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
   supabase: {
