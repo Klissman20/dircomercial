@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   // });
   // const arrayBuffer1 = await logo.arrayBuffer();
   // return Buffer.from(arrayBuffer1, "base64");
-  const dir = fs.readdirSync(path.join(process.cwd(), 'static'));
+  const dir = fs.readdirSync(path.join(process.cwd(), '/'));
   dir.forEach((file) => {
     console.log(file);
   })
