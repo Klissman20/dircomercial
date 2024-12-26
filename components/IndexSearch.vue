@@ -17,7 +17,7 @@
             placeholder="Escribe una palabra de busqueda"
             type="text"
             @keyup.enter="$router.push('/directorio')"
-            class="w-full p-2 pl-4 bg-opacity-50 text-white placeholder:text-white focus:ring mt-2 focus:border-[#FF9900] bg-white border focus:outline-none rounded-2xl"
+            class="w-full p-2 pl-4 bg-opacity-50 text-white placeholder:text-white focus:ring mt-2 focus:border-[#89C4E2] bg-white border focus:outline-none rounded-2xl"
           />
         </div>
         <NuxtLink
@@ -50,7 +50,7 @@
         </p>
         <NuxtLink
           to="/directorio"
-          class="text-xl hover:text-white hover:drop-shadow-xl font-light text-[#FF9900] p-1 rounded-sm transition-all bg-opacity-30 bg-transparent underline underline-offset-4 md:no-underline md:bg-black hover:underline duration-100 text-shadow hover:font-semibold"
+          class="text-xl hover:text-white hover:drop-shadow-xl font-light text-[#89C4E2] p-1 rounded-sm transition-all bg-opacity-30 bg-transparent underline underline-offset-4 md:no-underline md:bg-black hover:underline duration-100 text-shadow hover:font-semibold"
         >
           Encuentra Aquí <br> todo lo que buscas
         </NuxtLink>

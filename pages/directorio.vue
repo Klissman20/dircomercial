@@ -78,7 +78,7 @@
           @click="setDetails(comercio)"
         >
           <div
-            class="absolute bottom-0 flex items-center bg-gradient-to-b from-35% from-[#ff9900ea] to-[#e6750b] rounded-b-xl h-[40%] w-full"
+            class="absolute bottom-0 flex items-center bg-gradient-to-b from-35% from-[#89C4E2ea] to-[#e6750b] rounded-b-xl h-[40%] w-full"
           >
             <p class="text-center text-shadow w-full pt-4 text-white">
               {{ comercio.razon_social }}

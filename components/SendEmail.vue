@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#FF9900] p-6 rounded mx-5">
+  <div class="bg-[#89C4E2] p-6 rounded mx-5">
     <div class="flex gap-2 py-2 justify-between border-b">
       <h2 class="text-2xl font-bold text-white w-full">Editar Información</h2>
       <NuxtLink to="/ayuda" class="hover:scale-110 duration-100 text-white">

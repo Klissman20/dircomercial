@@ -18,7 +18,7 @@
         <strong>Correo electrónico: </strong
         ><a
           href="mailto:contactenos@guatape-antioquia.gov.co"
-          class="text-[#FF9900] hover:underline hover:text-white hover:cursor-pointer hover:drop-shadow-xl"
+          class="text-[#89C4E2] hover:underline hover:text-white hover:cursor-pointer hover:drop-shadow-xl"
           >contactenos@guatape-antioquia.gov.co</a
         >
       </p>

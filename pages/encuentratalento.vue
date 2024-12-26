@@ -71,7 +71,7 @@
         <div
           v-for="(talento, i) in talentos"
           :key="i"
-          class="border bg-[#FF9900] text-white bg-cover bg-center relative hover:font-semibold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
+          class="border bg-[#89C4E2] text-white bg-cover bg-center relative hover:font-semibold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
           @click="setDetails(talento)"
         >
           <div class="text-center">

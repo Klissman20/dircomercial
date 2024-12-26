@@ -102,7 +102,7 @@
           :class="
             disabled
               ? 'bg-[#707070] cursor-not-allowed'
-              : 'bg-[#FF9900] hover:scale-110'
+              : 'bg-[#89C4E2] hover:scale-110'
           "
           type="button"
           @click="addEducacion"

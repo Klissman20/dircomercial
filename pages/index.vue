@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#FF9900]">
+  <div class="bg-[#89C4E2]">
     <!-- <index-search></index-search> -->
     <div class="text-center pt-12  px-10 h-96">
       <img
@@ -14,7 +14,7 @@
       <hr class="w-2/3 mx-auto mt-4 mb-8" />
       <NuxtLink
         to="/talento"
-        class="bg-[#FF9900] hover:font-semibold text-white border border-white px-6 py-2 rounded-full duration-100 m-2 hover:px-10 hover:py-3"
+        class="bg-[#89C4E2] hover:font-semibold text-white border border-white px-6 py-2 rounded-full duration-100 m-2 hover:px-10 hover:py-3"
       >
         Ingresa aqui
       </NuxtLink>

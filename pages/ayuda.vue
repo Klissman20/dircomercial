@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen ">
   
-    <div class="bg-[#FF9900] pt-6 pl-6 md:pl-20 pb-4 border  border-y-[#707070]">
+    <div class="bg-[#89C4E2] pt-6 pl-6 md:pl-20 pb-4 border  border-y-[#707070]">
       <div class="max-w-5xl mx-auto">
 
         <p class="font-extrabold text-white text-xl md:text-2xl">Instrucciones</p>
@@ -21,10 +21,10 @@
       <div
         class="border border-[#707070] bg-white z-20 flex items-center justify-center rounded-full w-20 h-20 md:w-24 md:h-24"
       >
-        <p class="text-[#FF9900] text-4xl font-extrabold">1</p>
+        <p class="text-[#89C4E2] text-4xl font-extrabold">1</p>
       </div>
       <div
-        class="border absolute ml-10 border-[#707070] mt-3 md:mt-5 w-4/5 md:w-3/5   rounded-xl bg-[#FF9900]"
+        class="border absolute ml-10 border-[#707070] mt-3 md:mt-5 w-4/5 md:w-3/5   rounded-xl bg-[#89C4E2]"
       >
         <p class="text-white text-lg ml-16 py-3">Ingresa a este <NuxtLink class="hover:font-bold duration-75 underline py-1 rounded border px-6 hover:bg-[#e98222]" to="/comercio">link</NuxtLink></p>
       </div>
@@ -41,7 +41,7 @@
         </p>
       </div>
       <div
-        class="border border-[#707070] bg-[#FF9900] z-20 flex absolute items-center justify-center rounded-full w-24 h-24 mt-8 sm:mt-1 md:mt-0"
+        class="border border-[#707070] bg-[#89C4E2] z-20 flex absolute items-center justify-center rounded-full w-24 h-24 mt-8 sm:mt-1 md:mt-0"
       >
         <p class="text-white text-4xl font-extrabold">2</p>
       </div>
@@ -58,10 +58,10 @@
       <div
         class="border border-[#707070] bg-white z-20 flex items-center justify-center mt-7 sm:mt-1 md:mt-0 rounded-full w-24 h-24"
       >
-        <p class="text-[#FF9900] text-4xl font-extrabold">3</p>
+        <p class="text-[#89C4E2] text-4xl font-extrabold">3</p>
       </div>
       <div
-        class="border absolute ml-10 border-[#707070] mt-4 w-3/4 md:w-3/5 rounded-xl bg-[#FF9900]"
+        class="border absolute ml-10 border-[#707070] mt-4 w-3/4 md:w-3/5 rounded-xl bg-[#89C4E2]"
       >
         <p
           class="text-white md:text-md sm:text-sm text-md pl-16 pr-6 md:pr-6 py-3"
@@ -81,7 +81,7 @@
         </p>
       </div>
       <div
-        class="border border-[#707070] bg-[#FF9900] z-20 flex absolute items-center justify-center rounded-full w-24 h-24"
+        class="border border-[#707070] bg-[#89C4E2] z-20 flex absolute items-center justify-center rounded-full w-24 h-24"
       >
         <p class="text-white text-4xl font-extrabold">4</p>
       </div>
@@ -98,10 +98,10 @@
       <div
         class="border border-[#707070] mt-4  md:mt-2 bg-white z-20 flex items-center justify-center rounded-full w-24 h-24"
       >
-        <p class="text-[#FF9900] text-4xl font-extrabold">5</p>
+        <p class="text-[#89C4E2] text-4xl font-extrabold">5</p>
       </div>
       <div
-        class="border absolute ml-10 border-[#707070] mt-5 w-4/5 md:w-3/5 lg:w-2/5 rounded-xl bg-[#FF9900]"
+        class="border absolute ml-10 border-[#707070] mt-5 w-4/5 md:w-3/5 lg:w-2/5 rounded-xl bg-[#89C4E2]"
       >
         <p class="text-white text-sm md:text-md sm:text-sm pl-16 pr-4 py-3">
           Haz click en "Selecciona un archivo" para escoger una foto o logo que
@@ -119,7 +119,7 @@
     </div>
 
     <div
-      class="bg-[#FF9900] mx-auto text-center py-4 px-8  mb-12 border border-y-[#707070]"
+      class="bg-[#89C4E2] mx-auto text-center py-4 px-8  mb-12 border border-y-[#707070]"
     >
       <p class="text-white font-bold text-md  md:text-2xl">
         Los archivo no deben exceder 1 mb de peso y en <br />

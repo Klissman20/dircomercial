@@ -1,7 +1,7 @@
 <template>
   <div class="w-full max-w-4xl mx-auto px-10">
     <hr class="mt-2" />
-    <h3 class="text-2xl md:text-3xl mt-8 mb-4 font-bold text-[#FF9900]">
+    <h3 class="text-2xl md:text-3xl mt-8 mb-4 font-bold text-[#89C4E2]">
       Terminos y Condiciones
     </h3>
     <p class="text-sm md:text-lg font-medium ">
@@ -19,7 +19,7 @@
       Términos, no utilice el Sitio.
     </p>
 
-    <h4 class="text-2xl font-bold mt-6 mb-4 text-[#FF9900]">Uso del sitio</h4>
+    <h4 class="text-2xl font-bold mt-6 mb-4 text-[#89C4E2]">Uso del sitio</h4>
 
     <p class="text-sm md:text-lg font-medium  mt-6">
       <span class="text-lg md:text-xl font-bold text-black pr-1"

@@ -9,7 +9,7 @@
       <ul class="flex gap-16 pb-2 text-[#707070]">
         <li>
           <NuxtLink
-            class="duration-100 p-3 rounded-t-lg hover:bg-[#FF9900] hover:text-white"
+            class="duration-100 p-3 rounded-t-lg hover:bg-[#89C4E2] hover:text-white"
             :class="{ 'bg-[#999999] text-white': $route.path === '/' }"
             to="/"
             >Buscar</NuxtLink
@@ -17,7 +17,7 @@
         </li>
         <li>
           <NuxtLink
-            class="duration-100 p-3 rounded-t-lg hover:bg-[#FF9900] hover:text-white"
+            class="duration-100 p-3 rounded-t-lg hover:bg-[#89C4E2] hover:text-white"
             :class="{
               'bg-[#999999] text-white': $route.path === '/directorio',
             }"
@@ -27,7 +27,7 @@
         </li>
         <li>
           <NuxtLink
-            class="duration-100 p-3 rounded-t-lg hover:bg-[#FF9900] hover:text-white"
+            class="duration-100 p-3 rounded-t-lg hover:bg-[#89C4E2] hover:text-white"
             :class="{
               'bg-[#999999] text-white': $route.path === '/talento',
             }"
@@ -37,7 +37,7 @@
         </li>
         <li>
           <NuxtLink
-            class="duration-100 p-3 rounded-t-lg hover:bg-[#FF9900] hover:text-white"
+            class="duration-100 p-3 rounded-t-lg hover:bg-[#89C4E2] hover:text-white"
             :class="{
               'bg-[#999999] text-white': $route.path === '/contacto',
             }"
@@ -72,7 +72,7 @@
       class="bg-black bg-opacity-50 flex justify-end h-full fixed duration-300 w-full right-0 z-40"
       
     >
-      <div class="p-2 bg-[#FF9900] w-4/5">
+      <div class="p-2 bg-[#89C4E2] w-4/5">
         <div class="flex justify-end">
           <button @click="modal = !modal" class="p-4">
             <svg

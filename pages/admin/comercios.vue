@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-[#FF9900]">
+    <div class="bg-[#89C4E2]">
       <div class="block md:flex pt-6">
         <div class="w-full md:w-1/2 flex justify-center">
           <h3 class="text-2xl font-bold text-white">Administrador Comercios</h3>
