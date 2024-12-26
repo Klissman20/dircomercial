@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#FF9900] mx-4 rounded">
+  <div class="bg-[#89C4E2] mx-4 rounded">
     <div class="p-6 font-light text-lg">
       <NuxtLink
         to="/talento"

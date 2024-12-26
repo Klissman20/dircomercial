@@ -5,7 +5,7 @@
     </Modal>
 
     <div
-      class="bg-[#ff9911] h-60 flex justify-center text-center items-center text-white"
+      class="bg-[#89C4E2] h-60 flex justify-center text-center items-center text-white"
     >
       <div class="max-w-2xl mx-6 w-full">
         <h1 class="text-4xl font-light">Talento</h1>
@@ -71,7 +71,7 @@
         <div
           v-for="(talento, i) in talentos"
           :key="i"
-          class="border bg-[#FF9900] text-white bg-cover bg-center relative hover:font-semibold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
+          class="border bg-[#89C4E2] text-white bg-cover bg-center relative hover:font-semibold text-sm border-[#707070] m-4 px-4 h-52 md:h-32 text-center flex items-center justify-center rounded-xl cursor-pointer hover:scale-105 hover:drop-shadow-xl ease-in duration-100"
           @click="setDetails(talento)"
         >
           <div class="text-center">

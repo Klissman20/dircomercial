@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="bg-[#FF9900] md:h-60 flex justify-center text-center items-center text-white"
+      class="bg-[#89C4E2] md:h-60 flex justify-center text-center items-center text-white"
     >
       <div class="w-full px-2 py-10">
         <h1 class="text-4xl font-semibold py-4">TALENTO</h1>
@@ -13,7 +13,7 @@
     >
       <div class="max-w-3xl flex m-auto text-center gap-6 md:p-20">
         <NuxtLink
-          class="bg-[#FF9900] p-5 rounded-xl hover:scale-110 flex-1 h-full duration-100 hover:shadow"
+          class="bg-[#89C4E2] p-5 rounded-xl hover:scale-110 flex-1 h-full duration-100 hover:shadow"
           to="/hojadevida"
         >
           <div
@@ -22,7 +22,7 @@
           <p class="text-center text-white">Ofrece tu talento</p>
         </NuxtLink>
         <NuxtLink
-          class="bg-[#FF9900] p-5 rounded-xl hover:scale-110 flex-1 h-full duration-100 hover:shadow"
+          class="bg-[#89C4E2] p-5 rounded-xl hover:scale-110 flex-1 h-full duration-100 hover:shadow"
           to="/encuentratalento"
         >
           <div

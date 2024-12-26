@@ -7,7 +7,7 @@
       <div>Página no encontrada</div>
       <div class="p-4">
         <button
-          class="bg-white hover:font-semibold text-[#707070] border border-[#707070] px-6 py-2 rounded-full duration-100 m-2 hover:px-10 hover:py-3 hover:bg-[#FF9900] hover:text-white"
+          class="bg-white hover:font-semibold text-[#707070] border border-[#707070] px-6 py-2 rounded-full duration-100 m-2 hover:px-10 hover:py-3 hover:bg-[#89C4E2] hover:text-white"
           @click="handleError"
         >
           Ir al inicio

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-200 p-10 flex items-center justify-center">
-    <div class="p-8 rounded shadow-md max-w-3xl w-full bg-[#FF9900]">
+    <div class="p-8 rounded shadow-md max-w-3xl w-full bg-[#89C4E2]">
       <h2 class="text-3xl font-semibold text-white mb-4">
         Formulario de Contacto
       </h2>
@@ -72,7 +72,7 @@
           :class="{
             'opacity-50 cursor-not-allowed': success,
           }"
-          class="bg-[#FF9900] border w-full mx-auto border-white text-white px-4 py-2 rounded hover:scale-105 duration-100 ease-out"
+          class="bg-[#89C4E2] border w-full mx-auto border-white text-white px-4 py-2 rounded hover:scale-105 duration-100 ease-out"
         >
           Enviar
         </button>

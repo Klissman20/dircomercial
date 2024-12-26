@@ -168,7 +168,7 @@
       <div class="text-center">
         <button
           type="submit"
-          class="bg-[#FF9900] text-white hover:scale-105 duration-100 ease-out py-2 px-4 rounded-md"
+          class="bg-[#89C4E2] text-white hover:scale-105 duration-100 ease-out py-2 px-4 rounded-md"
         >
           Enviar Información
         </button>

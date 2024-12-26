@@ -1,6 +1,6 @@
 <template>
   <div class="mx-3">
-    <div class="flex bg-[#FF9900] p-4 rounded-t-3xl">
+    <div class="flex bg-[#89C4E2] p-4 rounded-t-3xl">
       <p
         class="text-lg md:text-2xl py-1 text-white w-full drop-shadow-md text-center"
       >
