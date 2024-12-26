@@ -5,7 +5,7 @@
     </Modal>
 
     <div
-      class="bg-[#ff9911] h-60 flex justify-center text-center items-center text-white"
+      class="bg-[#89C4E2] h-60 flex justify-center text-center items-center text-white"
     >
       <div class="max-w-2xl mx-6 w-full">
         <h1 class="text-4xl font-light">Talento</h1>

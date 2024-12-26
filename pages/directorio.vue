@@ -5,7 +5,7 @@
     </Modal>
 
     <div
-      class="bg-[#ff9911] h-60 flex justify-center text-center items-center text-white"
+      class="bg-[#89C4E2] h-60 flex justify-center text-center items-center text-white"
     >
       <div class="w-full max-w-xl mx-5">
         <p class="text-xl font-light">Directorio Comercial</p>
@@ -78,7 +78,7 @@
           @click="setDetails(comercio)"
         >
           <div
-            class="absolute bottom-0 flex items-center bg-gradient-to-b from-35% from-[#89C4E2ea] to-[#e6750b] rounded-b-xl h-[40%] w-full"
+            class="absolute bottom-0 flex items-center bg-gradient-to-b from-35% from-[#89C4E2ea] to-[#4797c0] rounded-b-xl h-[40%] w-full"
           >
             <p class="text-center text-shadow w-full pt-4 text-white">
               {{ comercio.razon_social }}
